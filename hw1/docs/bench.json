@@ -1,0 +1,13 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "device": "mps:0",
+  "dtype": "bfloat16",
+  "load_time_sec": 2.58,
+  "tokens_per_sec": 25.38,
+  "tokens_per_sec_all": [
+    25.59,
+    25.38,
+    23.4
+  ],
+  "peak_rss_mb": 4487.5
+}

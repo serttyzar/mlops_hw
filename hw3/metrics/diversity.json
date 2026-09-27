@@ -1,0 +1,31 @@
+{
+  "version": "v2",
+  "examples": 3981,
+  "system_prompts": 5,
+  "groups": 321,
+  "largest_group": "home & kitchen > kitchen & dining",
+  "largest_group_share": 0.06,
+  "answer_len": {
+    "p10": 328,
+    "p50": 437,
+    "p90": 617,
+    "ratio_p90_p10": 1.88,
+    "cv": 0.49,
+    "min": 191,
+    "max": 2494
+  },
+  "same_length_share": 0.008,
+  "duplicate_answer_share": 0.0,
+  "thresholds": {
+    "min_examples": 1000,
+    "min_system_prompts": 3,
+    "min_groups": 50,
+    "max_group_share": 0.1,
+    "min_answer_len_ratio": 1.6,
+    "max_same_length_share": 0.25,
+    "max_duplicate_answer_share": 0.3
+  },
+  "violations": [],
+  "passed": true,
+  "seconds": 0.14
+}

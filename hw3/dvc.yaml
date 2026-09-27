@@ -1,0 +1,104 @@
+# Пайплайн ДЗ 3: collect → clean → diversity → split.
+#
+# Два правила, из-за нарушения которых пайплайн «не пересчитывается»:
+#   deps — всё, от чего зависит результат: входные данные И код стадии;
+#   params — секции params.yaml, при изменении которых стадия обязана
+#            переисполниться (пути к источникам живут там, а не в deps).
+# Пути в outs дублируют paths.* из params.yaml: dvc.yaml не умеет читать
+# params, поэтому согласованность проверяется в tests/check.sh.
+
+stages:
+  collect:
+    cmd: python -m src.collect
+    deps:
+      # Источник. Лежит ВНЕ репозитория (1.3 ГБ сырья рядом с `git add .` —
+      # это не вопрос вкуса), поэтому путь относительный и внешний.
+      # Перечислены шарды ВСЕХ версий, а не только текущей: dvc.yaml статичен,
+      # а collect.version меняется. Лишняя зависимость приводит к лишнему
+      # пересчёту — пропущенная приводит к артефакту, собранному неизвестно
+      # из чего, и это несопоставимо дороже.
+      - ../../datasets/amasum/shards/0000.parquet
+      - ../../datasets/amasum/shards/0001.parquet
+      - src/collect.py
+      - src/config.py
+      - src/textnorm.py
+    params:
+      # Без этой секции стадия не видит смены collect.version: DVC сравнивает
+      # только deps и params, а версия живёт именно в params.yaml. Пайплайн
+      # тогда отдаёт на v2 закешированный результат v1.
+      - collect
+      - paths.raw
+    outs:
+      - data/raw.jsonl
+    metrics:
+      - metrics/collect.json:
+          cache: false
+
+  clean:
+    cmd: python -m src.clean
+    deps:
+      # Вход стадии. Его тут не было — и цепочка рвалась ровно здесь: collect
+      # честно пересобирал raw.jsonl на новой версии, а clean этого не видел
+      # и отдавал закешированный clean.jsonl от предыдущей. У diversity и split
+      # свой вход объявлен, поэтому обрыв был незаметен: падала не стадия,
+      # а только достоверность результата.
+      - data/raw.jsonl
+      - src/clean.py
+      - src/dedup.py
+      - src/pii.py
+      - src/schema.py
+      - src/textnorm.py
+      - src/config.py
+    params:
+      - clean
+      - paths.raw
+      - paths.clean
+    outs:
+      - data/clean.jsonl
+    metrics:
+      - metrics/clean.json:
+          cache: false
+
+  diversity:
+    cmd: python -m src.diversity
+    deps:
+      - data/clean.jsonl
+      - src/diversity.py
+      - src/stats.py
+      - src/schema.py
+      - src/textnorm.py
+      - src/config.py
+    params:
+      - diversity
+      - split.group_key
+      - paths.clean
+    metrics:
+      - metrics/diversity.json:
+          cache: false
+
+  split:
+    cmd: python -m src.split
+    deps:
+      - data/clean.jsonl
+      - src/split.py
+      - src/contamination.py
+      - src/dedup.py
+      - src/schema.py
+      - src/textnorm.py
+      - src/config.py
+    params:
+      - split
+      - contamination
+      - paths.train
+      - paths.val
+      - paths.test
+    outs:
+      # Все три сплита. Объявлен был только train — значит val и test
+      # не версионировались, не уезжали в remote и не восстанавливались
+      # по dvc.lock: тест, которого нет в истории, нечем воспроизвести.
+      - data/train.jsonl
+      - data/val.jsonl
+      - data/test.jsonl
+    metrics:
+      - metrics/split.json:
+          cache: false

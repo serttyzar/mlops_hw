@@ -1,0 +1,234 @@
+schema: '2.0'
+stages:
+  collect:
+    cmd: python -m src.collect
+    deps:
+    - path: ../../datasets/amasum/shards/0000.parquet
+      hash: md5
+      md5: 094df7f9c3321f08031ee38dada50ce4
+      size: 74336359
+    - path: ../../datasets/amasum/shards/0001.parquet
+      hash: md5
+      md5: 0cd711fe40a22c2f28943e6094cd73fb
+      size: 75046774
+    - path: src/collect.py
+      hash: md5
+      md5: c7c23d0f75e32ee36e58b4f63247a445
+      size: 20325
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    - path: src/textnorm.py
+      hash: md5
+      md5: c7e2f072fe9cc4d2b5af76f5c360c6c0
+      size: 1844
+    params:
+      params.yaml:
+        collect:
+          version: v2
+          n_rows: 2000
+          sources:
+            v1:
+            - ../../datasets/amasum/shards/0000.parquet
+            v2:
+            - ../../datasets/amasum/shards/0000.parquet
+            - ../../datasets/amasum/shards/0001.parquet
+          topics:
+          reviews_per_example: 8
+          min_critical_reviews: 2
+          critical_rating: 3.0
+          max_review_chars: 400
+          min_item_words: 3
+          min_summary_items: 3
+          min_item_hits: 2
+          min_item_overlap: 0.5
+          min_grounded_share: 0.5
+          max_group_share: 0.06
+          system_prompts:
+          - You summarise customer reviews of a product. Read the reviews and 
+            write a short verdict, then list the pros and the cons. Use only 
+            what the reviews actually say.
+          - 'Given a set of customer reviews for one product, produce a compact summary:
+            a one-sentence verdict, a list of pros and a list of cons. Do not invent
+            details that are absent from the reviews.'
+          - Your task is opinion summarisation. From the reviews below, write a 
+            verdict sentence, then bullet the advantages and the drawbacks that 
+            reviewers mention. Stay grounded in the reviews.
+          - 'Read the product reviews and condense them: one verdict line, then Pros
+            and Cons as bullet lists. Every bullet must be supported by at least one
+            review.'
+          - You are a review digest assistant. Summarise the customer reviews of
+            the product into a verdict, a Pros list and a Cons list. No 
+            speculation, no marketing language.
+        paths.raw: data/raw.jsonl
+    outs:
+    - path: data/raw.jsonl
+      hash: md5
+      md5: 1f3c7670db9c8d00b21ab0ce359bb759
+      size: 15294641
+    - path: metrics/collect.json
+      hash: md5
+      md5: 6f0e8e694de92d32147ca6bb2ea5ee84
+      size: 492
+  clean:
+    cmd: python -m src.clean
+    deps:
+    - path: data/raw.jsonl
+      hash: md5
+      md5: 1f3c7670db9c8d00b21ab0ce359bb759
+      size: 15294641
+    - path: src/clean.py
+      hash: md5
+      md5: f6f9a0d3b2fbefa240d66eea488c06e8
+      size: 5221
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    - path: src/dedup.py
+      hash: md5
+      md5: fde80d28430f1612c4cbb7f0fdcc1f4d
+      size: 2757
+    - path: src/pii.py
+      hash: md5
+      md5: 54de6f3690578d83cfc17094d2d2aa7a
+      size: 2397
+    - path: src/schema.py
+      hash: md5
+      md5: ad834fcb5caa483d3d5d5bfabb433cc0
+      size: 3054
+    - path: src/textnorm.py
+      hash: md5
+      md5: c7e2f072fe9cc4d2b5af76f5c360c6c0
+      size: 1844
+    params:
+      params.yaml:
+        clean:
+          min_user_chars: 30
+          max_user_chars: 4000
+          min_assistant_chars: 2
+          near_dup:
+            enabled: true
+            shingle_words: 4
+            num_perm: 64
+            threshold: 0.85
+          pii:
+            enabled: true
+        paths.clean: data/clean.jsonl
+        paths.raw: data/raw.jsonl
+    outs:
+    - path: data/clean.jsonl
+      hash: md5
+      md5: 6940353281735152cba64dcf63974c73
+      size: 15217925
+    - path: metrics/clean.json
+      hash: md5
+      md5: 3bd29a19973586e79d1961564f860385
+      size: 451
+  diversity:
+    cmd: python -m src.diversity
+    deps:
+    - path: data/clean.jsonl
+      hash: md5
+      md5: 6940353281735152cba64dcf63974c73
+      size: 15217925
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    - path: src/diversity.py
+      hash: md5
+      md5: 87c835819af5bec7aab3d976c97ce963
+      size: 7502
+    - path: src/schema.py
+      hash: md5
+      md5: ad834fcb5caa483d3d5d5bfabb433cc0
+      size: 3054
+    - path: src/stats.py
+      hash: md5
+      md5: a54925032eff4769647b5775d72dd423
+      size: 2222
+    - path: src/textnorm.py
+      hash: md5
+      md5: c7e2f072fe9cc4d2b5af76f5c360c6c0
+      size: 1844
+    params:
+      params.yaml:
+        diversity:
+          min_examples: 1000
+          min_system_prompts: 3
+          min_groups: 50
+          max_group_share: 0.1
+          min_answer_len_ratio: 1.6
+          max_same_length_share: 0.25
+          max_duplicate_answer_share: 0.3
+        paths.clean: data/clean.jsonl
+        split.group_key: topic
+    outs:
+    - path: metrics/diversity.json
+      hash: md5
+      md5: d3ea51eb9077934fa42f9d20bdd5b1c1
+      size: 669
+  split:
+    cmd: python -m src.split
+    deps:
+    - path: data/clean.jsonl
+      hash: md5
+      md5: 6940353281735152cba64dcf63974c73
+      size: 15217925
+    - path: src/config.py
+      hash: md5
+      md5: 9e487ae55cd79a8a7582f0dfec84f671
+      size: 2094
+    - path: src/contamination.py
+      hash: md5
+      md5: 9293919fc5964067833313514c6f9f2b
+      size: 2249
+    - path: src/dedup.py
+      hash: md5
+      md5: fde80d28430f1612c4cbb7f0fdcc1f4d
+      size: 2757
+    - path: src/schema.py
+      hash: md5
+      md5: ad834fcb5caa483d3d5d5bfabb433cc0
+      size: 3054
+    - path: src/split.py
+      hash: md5
+      md5: e04bc24945e75eb19de03d1b3f76e79f
+      size: 4580
+    - path: src/textnorm.py
+      hash: md5
+      md5: c7e2f072fe9cc4d2b5af76f5c360c6c0
+      size: 1844
+    params:
+      params.yaml:
+        contamination:
+          threshold: 0.85
+        paths.test: data/test.jsonl
+        paths.train: data/train.jsonl
+        paths.val: data/val.jsonl
+        split:
+          group_key: topic
+          ratios:
+            train: 0.8
+            val: 0.1
+            test: 0.1
+          seed: 42
+    outs:
+    - path: data/test.jsonl
+      hash: md5
+      md5: 3059a816706b7cdbf40e21df48d5169d
+      size: 1489263
+    - path: data/train.jsonl
+      hash: md5
+      md5: a4eea5e9383cae52450e325d801f8cce
+      size: 12241968
+    - path: data/val.jsonl
+      hash: md5
+      md5: bb0c85d4bf7782db3dbcecea1e3b58c3
+      size: 1486694
+    - path: metrics/split.json
+      hash: md5
+      md5: fd60ea8e4e89a46f3a79976d0335a9a9
+      size: 516

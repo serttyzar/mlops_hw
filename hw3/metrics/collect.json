@@ -1,0 +1,20 @@
+{
+  "version": "v2",
+  "files": 2,
+  "rows_scanned": 8835,
+  "rows_written": 4000,
+  "dropped_no_category": 41,
+  "dropped_topic_filter": 0,
+  "dropped_incomplete_summary": 329,
+  "dropped_no_reviews": 0,
+  "dropped_ungrounded": 4364,
+  "dropped_group_cap": 101,
+  "topics_filter": 0,
+  "groups": 321,
+  "group_cap": 240,
+  "largest_group": "Home & Kitchen > Kitchen & Dining",
+  "largest_group_share": 0.06,
+  "grounded_share_mean": 0.6618,
+  "system_prompt_variants": 5,
+  "seconds": 3.3
+}

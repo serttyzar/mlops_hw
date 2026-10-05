@@ -1,0 +1,66 @@
+# Единственная точка конфигурации ДЗ 5. В src/ нет ни имени модели,
+# ни learning rate, ни путей.
+model:
+  name: "Qwen/Qwen3-0.6B"
+  device: "auto"            # auto | cpu | cuda | mps
+  # Базовые веса в bfloat16: они заморожены, точность им не нужна, а память
+  # и время уходят вдвое. Сами матрицы LoRA peft держит в float32 — там идут
+  # крошечные обновления AdamW. На старом CPU без bf16 ставьте float32.
+  dtype: "bfloat16"
+  enable_thinking: false    # как в ДЗ 4: шаблон должен совпадать с обучением
+
+data:
+  # Выход стадии tokenize из ДЗ 4. У студента — свой путь.
+  train: "data/tokenized/train.pt"
+  val: "data/tokenized/val.pt"
+
+lora:
+  r: 8
+  alpha: 16                 # итоговый масштаб апдейта alpha / r = 2
+  dropout: 0.05
+  # Только проекции внимания и MLP. embed_tokens и lm_head — это 155 млн
+  # параметров каждый; в modules_to_save они уезжают в адаптер целиком.
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+
+train:
+  seed: 42
+  epochs: 1
+  batch_size: 2
+  grad_accum: 4             # эффективный батч = 8: память как у батча 2, шаг как у батча 8
+  lr: 2.0e-4
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  eval_every: 10            # шагов оптимизатора между замерами val loss
+  # Логиты на весь словарь: 2 примера x 512 токенов x 151 936 x 4 байта = 0,6 ГБ.
+  # Батч 8 на оценке — уже 2,5 ГБ одних логитов, и ноутбук уходит в своп.
+  eval_batch_size: 2
+  gradient_checkpointing: true   # без него на ноутбуке с 16–32 ГБ не влезает
+  max_steps: null           # null — по эпохам; число — обрезать (smoke-тесты)
+  train_limit: 500          # фиксированный срез своего train-сплита; полный набор — 3185
+  val_limit: 40             # фиксированный срез своего val-сплита; полный набор — 398
+
+# Эксперимент по слоям: второй прогон без адаптеров на первых N слоях.
+variants:
+  - name: "all_layers"
+    freeze_first: 0
+  - name: "freeze14"
+    freeze_first: 14
+
+compare:
+  max_new_tokens: 120
+  # Пять фиксированных вопросов из собственного val-сплита ДЗ 4; ответы в тесте не используются.
+  prompt_ids: ["B07BHKJVQD", "B01KZANDBM", "B018IYD3XK", "B087N9V1KD", "B01CCGQO2C"]
+  prompts:
+    - "Product: adidas Icon Bounce Cleat - Men's Baseball\nCategory: Shoes & Bags\n\nCustomer reviews:\n1. [5/5] Great looking spikes. — My kid loves these, I recommend buying sport insoles though.\n2. [3/5] Major blisters — I'm not sure what it was about these cleats, but they were the first pair of Adidas cleats my son has ever tried. He usually wears Nike, but he wanted some to match his uniform, so he went with these. The fit seemed fine, but he was getting massive blood blisters on his toes and heels to the point that we literally gave them away after about 4 tournaments (thinking maybe they just needed to be…\n3. [5/5] Great cleats! — My son loves these cleats. He said it is very comfortable and easily broken in.\n4. [5/5] Nice pair. — Great pair of cleats. First timer and experience was great. Felt very grounded while sprinting around the bases.\n5. [1/5] Spoke broke off after wearing only a few times — After wearing these only a handful of times (purchased in January before season started, played a couple tournaments in February before baseball shut down for pandemic) one of the metal spikes snapped off making the shoes useless. Return window is now closed and I don’t have a way to return it contact someone for help with this.\n6. [5/5] Run true to size — Great cleats! Fit true to size and a comfortable fit!\n7. [2/5] Good price — The leather like material should hold up better than the mesh material that was purchased in the past. Time will tell\n8. [5/5] Fits perfect — My son loves them, they look great match his school colors... so far so good"
+    - "Product: Care Bears Hug & Giggle Feature Cheer Plush\nCategory: Toys & Games > Stuffed Animals & Plush Toys\n\nCustomer reviews:\n1. [5/5] So cute! — Bought this for my 10 month old and she LOVES it! It's very easy for her to \"tickle\" it's tummy to get it to laugh, and she's amazed at her abilities to do so Lol. I love that Care Bears are still around!\n2. [4/5] Chanel West Coast Bear — Sure it’s a cute bear and my daughter loves it but it drives us crazy. The giggling is so repetitive, it gives me Chanel west coast vibes(girl from Ridiculousness). I mean if you can stand her laugh and want your child to be happy then get it. You’ve been warned.\n3. [5/5] Great toy to anyone that loves the Care Bears — My daughter loves this toy, it's one of her favorites! She loves the giggling sounds from Cheer Bear. It's like a Care Bear version of Tickle Me Elmo. Highly recommended.\n4. [5/5] Adorable! — This care bear is adorable. My granddaughter loves hugging it. The look of joy on her face when she opened it was priceless!!\n5. [5/5] Awesome! — Bought this for my niece's 4th birthday. Can't wait to see her reaction, I'm sure she's going to love it!\n6. [5/5] Very cute! — I bought this for a 3 year old's birthday. It very sensitive to the touch. The laugh sounds cute and the bear is still pretty soft. Over all a very happy 3 year old :)\n7. [5/5] My niece love it. — I bought this bear for my niece and she loved it.\n8. [1/5] Disappointing — I bought this for my daughter and as soon as I opened it, there was a rip. For it being $20 it’s pretty disappointing see that it cane damaged."
+    - "Product: tarte Airbrush Finish Bamboo Foundation Brush\nCategory: Beauty & Personal Care > Face\n\nCustomer reviews:\n1. [5/5] Quality product, soft and worth the price! — This. Brush. Is. Dynamite. THE BEST foundation brush I’ve ever used and blends extremely well! I’ve used it with different foundations and bronzer and it works well for different brands of makeup. So soft and non-abrasive. Well worth the price and good quality!\n2. [5/5] Great foundation brush! — Love it! Super soft. Blends my Tarte foundation great 🤗 Only problem was the packaging came absolutely smashed. So happy it didn’t compromise the brush.\n3. [5/5] Super soft brush! Highly recommend!! — Absolutely recommend this foundation brush. Super soft and feel awesome on your skin. Great results!\n4. [5/5] Amazing. You need this! — Amazing. Buy it. Blends foundation like nothing else! I put dabs on my face all over with my hand and then blend with this. It’s amazing. Just get it.\n5. [1/5] Terrible — I was expecting so much! This did not blend my makeup, left lines all over my face and did not bled into my skin. I was using Tarte products that have always blended seamlessly so I know it was not my makeup, it was this brush.\n6. [5/5] Love this brush — Love this brush. Shaved off so much time applying my foundation.\n7. [1/5] They sent me a brush that was only about an ... — They sent me a brush that was only about an inch tall. It was not the same brush that is pictured above.\n8. [5/5] Perfect for full coverage!! — Great brush!! Pat in gently for full coverage! The best brush ever! Covers all dark marks and acne."
+    - "Product: HUAWEI FreeBuds 3i - Wireless Earbuds with Ultimate Active Noise Cancellation (3-mic System Earphones, Fast Bluetooth Connection, 10mm Speaker, Pop to Pair), White, One\nCategory: Electronics & Photo > Headphones, Earphones & Accessories\n\nCustomer reviews:\n1. [5/5] Daughter loves them! — Daughter loves them! I've given them a go too, great quality for the size, they stay in your ears really well too. Great convenience with the charging case.\n2. [5/5] Good for the price — Surprised how good these are, a little bigger than expected but anc is very good on this price mark. Over all very happy. Used on android and iPhone with no problems so far\n3. [5/5] No Wires — Bought for a friend and as far as I know he loves them. They arrived on time and in good condition 😄\n4. [4/5] Good performance — Great all around with one exception. The housing unit was assembled slightly off and is not smooth on the right earbud and catches against my skin in the ear from time to time\n5. [5/5] Nice comfy earbuds — Nice comfy earbuds. Good sound with noise cancellation on. Connect quickly. Taps work OK. Good range from Bluetooth unit.\n6. [5/5] Earphones — Good sound quality, good connection within a reasonable distance. Nice and compact with good battery life.\n7. [5/5] Great product! — Sounds really good, noise cancelling is decent but not great, battery last around 2.5 hours with volume at 80%,good value for money!\n8. [3/5] Disappointing battery life — The buds look solidly made and the audio quality is very good, the noise cancelling is very good too. It loses stars due to the battery life they run out of charge after about 2.5 to 3 hrs maximum disappointed."
+    - "Product: Trolls DreamWorks Poppy Talkin Plush Doll\nCategory: Toys & Games > Stuffed Animals & Plush Toys\n\nCustomer reviews:\n1. [1/5] Don’t buy this — This thing was a joke. Looks nothing like the photo. I had to send it back. Did provide a good laugh though hahaha\n2. [4/5] Cute doll — My daughter loves Trolls, and she has other talking dolls from other movies (that she loves!) as well so I thought it would be perfect. However, this doll only talks, it doesn't sing. I wish it had a few of the songs from the movie, as that is my daughters favorite. Still a cute product though and comes with a little comb you can brush her hair. Our favorite phrase is \"hug time\"\n3. [1/5] One Star — Not even close to what was pictured. Mine came with orange hair. Sent back\n4. [5/5] Poppy doll is adorable — My little one is obsessed with Poppy! This is a must have for all Troll fans. She says different phrases and comes with a cute troll shaped comb. The doll doesn't shed the hair , like I initially thought.\n5. [5/5] Five Stars — My little girl is so in love with this cute doll. Perfect size and sounds clear.\n6. [5/5] Trolls — Looks just like in the picture. The hair is perfect for little hands to comb.\n7. [5/5] Order it!!!! — This is great! Says cute phrases from the movie! Sound is clear and not to loud! Perfect. Kids love it. Would buy again for sure! Perfect size, hair is great and easy for kids to play with! Buy it!!\n8. [1/5] Not as advertised. The doll is about 3 inches ... — Not as advertised. The doll is about 3 inches tall and not a name brand, but a very cheap knock off shipped directly from China. I did not know that when I ordered it as it was advertised as Hasbro."
+  system: "Given a set of customer reviews for one product, produce a compact summary: a one-sentence verdict, a list of pros and a list of cons. Do not invent details that are absent from the reviews."
+
+paths:
+  models: "models"
+  metrics: "metrics"
+  curves: "docs/curves.png"
+  compare: "docs/compare.md"

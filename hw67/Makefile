@@ -36,3 +36,15 @@ baseline-update:
 	uv run python -m evaluation.cli baseline-update
 predict-candidate:
 	uv run python -m src.predict --uri models:/amasum-qwen-adapter@candidate --prompt "Product: Mug. Reviews: Keeps coffee hot but the lid leaks. Summarize."
+
+.PHONY: prepare-eval verify-lineage report-all verify-evidence package
+prepare-eval:
+	uv run python -m scripts.prepare_eval
+verify-lineage:
+	uv run python scripts/verify_lineage.py
+report-all:
+	uv run python -m scripts.build_report
+verify-evidence:
+	uv run python -m scripts.verify_evidence
+package:
+	uv run python -m scripts.package_submission

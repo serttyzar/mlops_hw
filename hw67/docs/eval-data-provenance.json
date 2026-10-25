@@ -1,0 +1,12 @@
+{
+  "n_training": 3185,
+  "n_golden": 50,
+  "n_behavioral": 3,
+  "source_sha256": {
+    "../hw4/data/train.jsonl": "5b280ee02fe212b29643f05bed57381c550d4722a86c1358a4ef799314e19b99",
+    "../hw3/data/test.jsonl": "bc9ec2b2d1972a785a65056209c84f5e8e1588e17690a62f6855951b67bfdac5"
+  },
+  "selection": "First 50 distinct products in unchanged HW3 held-out test; before model inference",
+  "grouping": "Original HW3 topic, not new per-question groups",
+  "review": "50 labels inspected against excerpts by assistant; human review not claimed"
+}

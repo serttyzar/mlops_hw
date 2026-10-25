@@ -1,0 +1,19 @@
+{
+  "method": "Full re-encoding using unchanged HW4 code, comparison of ids/input_ids/attention_mask/labels",
+  "splits": {
+    "train": {
+      "source_rows": 3185,
+      "tensor_rows": 3185,
+      "all_tensors_match": true,
+      "source_sha256": "5b280ee02fe212b29643f05bed57381c550d4722a86c1358a4ef799314e19b99",
+      "tensor_sha256": "846edf79e027b35a67850d86bec7e2fa09049f650aa898412cf9e7c8d8ff6ee0"
+    },
+    "val": {
+      "source_rows": 398,
+      "tensor_rows": 398,
+      "all_tensors_match": true,
+      "source_sha256": "190d9c7a6d48e8a2af92c301eca5e08999f3308c14bd81d97e928aedfbc0c54a",
+      "tensor_sha256": "462ddc664bb8d3bc4f627a0d8cdb930e311363acb93ca68428a27e3edb1bed42"
+    }
+  }
+}

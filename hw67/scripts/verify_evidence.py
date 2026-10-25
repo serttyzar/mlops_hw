@@ -27,6 +27,11 @@ for role in ('baseline','candidate'):
     assert report['baseline_spec_sha256'] == fingerprint(base)
     assert report['leakage'] == proof
     reports.append(report)
+a = {r['id']: r for r in reports[0]['per_item']}
+b = {r['id']: r for r in reports[1]['per_item']}
+assert read_json('metrics/eval-diff.json') == dict(
+    improved=[i for i in a if not a[i]['correct'] and b[i]['correct']],
+    regressed=[i for i in a if a[i]['correct'] and not b[i]['correct']])
 assert reports[0]['model'] == base
 assert reports[1]['model'] == read_json('metrics/candidate-model.json')
 try:

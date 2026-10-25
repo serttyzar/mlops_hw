@@ -1,0 +1,11 @@
+{
+  "training": {
+    "a2dfd79669ab490c8e76d6bb57ebdc59": "http://127.0.0.1:5006/#/experiments/1/runs/a2dfd79669ab490c8e76d6bb57ebdc59",
+    "b8608c51c9364a0f96430802db98fb06": "http://127.0.0.1:5006/#/experiments/1/runs/b8608c51c9364a0f96430802db98fb06",
+    "ba3f913a41b344e8b72169fb6518a477": "http://127.0.0.1:5006/#/experiments/1/runs/ba3f913a41b344e8b72169fb6518a477",
+    "db941e2f80944d2baa55c79b62045618": "http://127.0.0.1:5006/#/experiments/1/runs/db941e2f80944d2baa55c79b62045618",
+    "281696f55d0140408d7459e7912584f8": "http://127.0.0.1:5006/#/experiments/1/runs/281696f55d0140408d7459e7912584f8",
+    "6a15be9f1c564c4d9577513b2011b824": "http://127.0.0.1:5006/#/experiments/1/runs/6a15be9f1c564c4d9577513b2011b824"
+  },
+  "evaluation": "http://127.0.0.1:5006/#/experiments/2/runs/0625413afa7f4dd5a6a38281afcf2f48"
+}

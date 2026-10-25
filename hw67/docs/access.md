@@ -79,3 +79,12 @@ uvx --from 'dvc==3.67.1' dvc status data/eval.dvc
 Официальная документация по инфраструктуре:
 [MLflow: хранение артефактов через сервер](https://www.mlflow.org/docs/latest/self-hosting/architecture/tracking-server/),
 [uv в Docker](https://docs.astral.sh/uv/guides/integration/docker/).
+
+## Приложение в GitHub-репозитории
+
+Для доступа преподавателю непосредственно из GitHub добавлен
+[submission/evidence.zip](../submission/evidence.zip). Он содержит три JSONL
+проверки, все JSON-измерения и логи, но не веса и тензоры. После клонирования
+из hw67 выполните `unzip -o submission/evidence.zip`, затем
+`python3 -m scripts.verify_evidence`. SHA256 содержимого перечислены в
+`submission/evidence-sha256.json` внутри архива. DVC-указатели не изменены.

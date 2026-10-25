@@ -54,7 +54,9 @@ with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as z:
         z.write(file, 'mlops_hw/hw67/' + str(file))
     for file in sorted(Path('submission').glob('*')):
         if file.is_file():
-            z.write(file, 'mlops_hw/hw67/submission/' + file.name)
+            name = 'mlops_hw/hw67/submission/' + file.name
+            if name not in z.namelist():
+                z.write(file, name)
     z.write(bundle, 'repository.bundle')
     z.writestr('START-HERE.md', readme)
 with zipfile.ZipFile(output) as z:

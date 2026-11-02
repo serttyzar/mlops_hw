@@ -105,7 +105,8 @@ make check-flow                     # 12 команд, свежие workspace, �
 `repository.bundle`, новые метрики/логи и необходимые старые данные проверки.
 Внутри — `SHA256.json`. Веса, .venv, .models, .real, Prefect DB/cache и volumes
 исключены. Клонирование истории: `git clone repository.bundle restored_repo`.
-Видео хранится отдельно от Git/архива кода; путь указан в `docs/video.md`.
+Видео исключено из Git, но включено в архив сдачи и сохранено отдельно;
+путь указан в `docs/video.md`.
 
 Удалённый CI не запускался; `ci.example.yml` — только шаблон.
 Защита merge не заявляется.

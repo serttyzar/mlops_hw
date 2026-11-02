@@ -27,6 +27,10 @@ with zipfile.ZipFile(DEST,'w',compression=zipfile.ZIP_DEFLATED) as archive:
         if path.is_file():
             archive.write(path,'mlops_hw/'+name)
             checksums['mlops_hw/'+name]=hashlib.sha256(path.read_bytes()).hexdigest()
+    video=REPO.parent/'hw8910-demo.mp4'
+    if video.exists():
+        archive.write(video,'hw8910-demo.mp4')
+        checksums['hw8910-demo.mp4']=hashlib.sha256(video.read_bytes()).hexdigest()
     archive.write(BUNDLE,'repository.bundle')
     checksums['repository.bundle']=hashlib.sha256(BUNDLE.read_bytes()).hexdigest()
     archive.writestr('SHA256.json',json.dumps(checksums,sort_keys=True,indent=2)+'\n')

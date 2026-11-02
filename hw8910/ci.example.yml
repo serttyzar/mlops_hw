@@ -1,16 +1,18 @@
+# Optional workflow template. Local CI has been executed; this file is not evidence of GitHub runs.
 name: Fast release checks
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 jobs:
-  contracts:
+  release-checks:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hw8910
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v7
         with:
-          python-version: '3.12'
-      # Шаблон предполагает release.py и tests/ в корне репозитория.
-      # При вложенном проекте задайте working-directory для run.
-      - run: python -m compileall -q release.py tests
-      - run: python -m unittest discover -s tests -v
+          version: '0.12.10'
+      - run: uv sync --frozen
+      - run: make check PYTHON='.venv/bin/python'

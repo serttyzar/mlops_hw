@@ -8,3 +8,8 @@ models/
 *.bin
 *.pt
 .lab*/
+.models/
+.real/
+.prefect*/
+submission/*.zip
+submission/*.bundle

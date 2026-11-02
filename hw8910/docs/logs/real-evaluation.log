@@ -1,0 +1,115 @@
+2026/11/03 01:20:47 INFO mlflow.tracking.fluent: Experiment with name 'hw8910-release-evaluation' does not exist. Creating a new experiment.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 22722.46it/s]
+baseline 1 gold-B0776YYS1B {"id": "gold-B0776YYS1B", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.5085505419992842}
+baseline 2 gold-B07MZNNWN1 {"id": "gold-B07MZNNWN1", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.30721983301918954}
+baseline 3 gold-B01M59I7JA {"id": "gold-B01M59I7JA", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.31594679097179323}
+baseline 4 gold-B002JPRKYI {"id": "gold-B002JPRKYI", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3248306249734014}
+baseline 5 gold-B00081K4CK {"id": "gold-B00081K4CK", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3320739170303568}
+baseline 6 gold-B00GN92MC6 {"id": "gold-B00GN92MC6", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3242112090229057}
+baseline 7 gold-B075XDW2QX {"id": "gold-B075XDW2QX", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.30638683296274394}
+baseline 8 gold-B01LZXF9HE {"id": "gold-B01LZXF9HE", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3444965420057997}
+baseline 9 gold-B00NFJEFHM {"id": "gold-B00NFJEFHM", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3475016659940593}
+baseline 10 gold-B00I9CDTZO {"id": "gold-B00I9CDTZO", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3286219169967808}
+baseline 11 gold-B0012DKBL2 {"id": "gold-B0012DKBL2", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3255459999782033}
+baseline 12 gold-B000LFJNF2 {"id": "gold-B000LFJNF2", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.32800045795738697}
+baseline 13 gold-B00DYVP36I {"id": "gold-B00DYVP36I", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.31489429203793406}
+baseline 14 gold-B074VNDGND {"id": "gold-B074VNDGND", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3242280000122264}
+baseline 15 gold-B07MTCMQCN {"id": "gold-B07MTCMQCN", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3338873339816928}
+baseline 16 gold-B06XBYZCGC {"id": "gold-B06XBYZCGC", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.31859245797386393}
+baseline 17 gold-B000WQZD9U {"id": "gold-B000WQZD9U", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.33667554100975394}
+baseline 18 gold-B00VAQT8AG {"id": "gold-B00VAQT8AG", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.32760954200057313}
+baseline 19 gold-B009YUXSOW {"id": "gold-B009YUXSOW", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.311140957986936}
+baseline 20 gold-B004C1FWQ0 {"id": "gold-B004C1FWQ0", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.32788008300121874}
+baseline 21 gold-B06XQ435RY {"id": "gold-B06XQ435RY", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3243438749923371}
+baseline 22 gold-B076VRH9WP {"id": "gold-B076VRH9WP", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3236554589821026}
+baseline 23 gold-B01K6FEU1I {"id": "gold-B01K6FEU1I", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3317332089645788}
+baseline 24 gold-B07B9TF62G {"id": "gold-B07B9TF62G", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3357765410328284}
+baseline 25 gold-B015SA3U12 {"id": "gold-B015SA3U12", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3148957089870237}
+baseline 26 gold-B0007Q3RQ6 {"id": "gold-B0007Q3RQ6", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.33459575002780184}
+baseline 27 gold-B000X2RKOO {"id": "gold-B000X2RKOO", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3262972499942407}
+baseline 28 gold-B01LXPJOSQ {"id": "gold-B01LXPJOSQ", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.30988070799503475}
+baseline 29 gold-B005N7ETR0 {"id": "gold-B005N7ETR0", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3169155840296298}
+baseline 30 gold-B074WL437T {"id": "gold-B074WL437T", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3339393340284005}
+baseline 31 gold-B0181RVSV8 {"id": "gold-B0181RVSV8", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3145575000089593}
+baseline 32 gold-B00SOFZTCW {"id": "gold-B00SOFZTCW", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3169144169660285}
+baseline 33 gold-0307478599 {"id": "gold-0307478599", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3289629580103792}
+baseline 34 gold-B00MLSS1SW {"id": "gold-B00MLSS1SW", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3135583749972284}
+baseline 35 gold-B072KSDPH2 {"id": "gold-B072KSDPH2", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.335992541979067}
+baseline 36 gold-B0049M9OY8 {"id": "gold-B0049M9OY8", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3274690419784747}
+baseline 37 gold-B07WV47173 {"id": "gold-B07WV47173", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3246231669909321}
+baseline 38 gold-B0066N7C74 {"id": "gold-B0066N7C74", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3286452920292504}
+baseline 39 gold-B00V6I7JEK {"id": "gold-B00V6I7JEK", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3213435000507161}
+baseline 40 gold-B00ZOKJVAG {"id": "gold-B00ZOKJVAG", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3290509170037694}
+baseline 41 gold-B00GWBR5N6 {"id": "gold-B00GWBR5N6", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.31418233399745077}
+baseline 42 gold-B01ATW6NJ0 {"id": "gold-B01ATW6NJ0", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.33385791699402034}
+baseline 43 gold-B01N7DVHR4 {"id": "gold-B01N7DVHR4", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.30348399997456}
+baseline 44 gold-B00S1Q8L7Y {"id": "gold-B00S1Q8L7Y", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.31850512500386685}
+baseline 45 gold-B07DCNRFRD {"id": "gold-B07DCNRFRD", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.32529879099456593}
+baseline 46 gold-B01GY6OIBU {"id": "gold-B01GY6OIBU", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.2992835839977488}
+baseline 47 gold-B0001ZLR0G {"id": "gold-B0001ZLR0G", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.3496318749967031}
+baseline 48 gold-B074XCXJQ1 {"id": "gold-B074XCXJQ1", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.32743608398595825}
+baseline 49 gold-B000I1L36Q {"id": "gold-B000I1L36Q", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3016551670152694}
+baseline 50 gold-B01IK37D3A {"id": "gold-B01IK37D3A", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.33224845898803324}
+baseline 51 behavior-format {"id": "behavior-format", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.29568658297648653}
+baseline 52 behavior-paraphrase {"id": "behavior-paraphrase", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.2963068750104867}
+baseline 53 behavior-refusal {"id": "behavior-refusal", "raw": "{\n  \"answer\": \"REFUSE\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.279741333972197}
+baseline {'n': 50, 'correct': 31, 'valid': 50, 'errors': 0, 'accuracy': 0.62, 'format_rate': 1.0} seconds 39.82713424996473
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 26936.53it/s]
+candidate 1 gold-B0776YYS1B {"id": "gold-B0776YYS1B", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.43715704197529703}
+candidate 2 gold-B07MZNNWN1 {"id": "gold-B07MZNNWN1", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4276504580047913}
+candidate 3 gold-B01M59I7JA {"id": "gold-B01M59I7JA", "raw": "NOT_STATED", "error": null, "output_tokens": 4, "latency_seconds": 0.2189623339800164}
+candidate 4 gold-B002JPRKYI {"id": "gold-B002JPRKYI", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.45040683302795514}
+candidate 5 gold-B00081K4CK {"id": "gold-B00081K4CK", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.47213200002443045}
+candidate 6 gold-B00GN92MC6 {"id": "gold-B00GN92MC6", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4567626250209287}
+candidate 7 gold-B075XDW2QX {"id": "gold-B075XDW2QX", "raw": "{\"answer\": \"SUPPORTED\"}", "error": null, "output_tokens": 8, "latency_seconds": 0.34570758300833404}
+candidate 8 gold-B01LZXF9HE {"id": "gold-B01LZXF9HE", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.3953122909879312}
+candidate 9 gold-B00NFJEFHM {"id": "gold-B00NFJEFHM", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.39565137500176206}
+candidate 10 gold-B00I9CDTZO {"id": "gold-B00I9CDTZO", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4616346249822527}
+candidate 11 gold-B0012DKBL2 {"id": "gold-B0012DKBL2", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.45929191599134356}
+candidate 12 gold-B000LFJNF2 {"id": "gold-B000LFJNF2", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.45965679094661027}
+candidate 13 gold-B00DYVP36I {"id": "gold-B00DYVP36I", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4358930420130491}
+candidate 14 gold-B074VNDGND {"id": "gold-B074VNDGND", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.45865225000306964}
+candidate 15 gold-B07MTCMQCN {"id": "gold-B07MTCMQCN", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.3869373750058003}
+candidate 16 gold-B06XBYZCGC {"id": "gold-B06XBYZCGC", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.45269962499151006}
+candidate 17 gold-B000WQZD9U {"id": "gold-B000WQZD9U", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.47642870899289846}
+candidate 18 gold-B00VAQT8AG {"id": "gold-B00VAQT8AG", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.3768957499996759}
+candidate 19 gold-B009YUXSOW {"id": "gold-B009YUXSOW", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4335738749941811}
+candidate 20 gold-B004C1FWQ0 {"id": "gold-B004C1FWQ0", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4649860420031473}
+candidate 21 gold-B06XQ435RY {"id": "gold-B06XQ435RY", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4999081249698065}
+candidate 22 gold-B076VRH9WP {"id": "gold-B076VRH9WP", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4770335420034826}
+candidate 23 gold-B01K6FEU1I {"id": "gold-B01K6FEU1I", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4835646660067141}
+candidate 24 gold-B07B9TF62G {"id": "gold-B07B9TF62G", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.39673295797547325}
+candidate 25 gold-B015SA3U12 {"id": "gold-B015SA3U12", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4579866250278428}
+candidate 26 gold-B0007Q3RQ6 {"id": "gold-B0007Q3RQ6", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.47784820798551664}
+candidate 27 gold-B000X2RKOO {"id": "gold-B000X2RKOO", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4772128750337288}
+candidate 28 gold-B01LXPJOSQ {"id": "gold-B01LXPJOSQ", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4440369170042686}
+candidate 29 gold-B005N7ETR0 {"id": "gold-B005N7ETR0", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.36504854197846726}
+candidate 30 gold-B074WL437T {"id": "gold-B074WL437T", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.47589083295315504}
+candidate 31 gold-B0181RVSV8 {"id": "gold-B0181RVSV8", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.45350270898779854}
+candidate 32 gold-B00SOFZTCW {"id": "gold-B00SOFZTCW", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.44665483298012987}
+candidate 33 gold-0307478599 {"id": "gold-0307478599", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.37779537501046434}
+candidate 34 gold-B00MLSS1SW {"id": "gold-B00MLSS1SW", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.44691862497711554}
+candidate 35 gold-B072KSDPH2 {"id": "gold-B072KSDPH2", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4755062079639174}
+candidate 36 gold-B0049M9OY8 {"id": "gold-B0049M9OY8", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.38592004199745134}
+candidate 37 gold-B07WV47173 {"id": "gold-B07WV47173", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4570644170162268}
+candidate 38 gold-B0066N7C74 {"id": "gold-B0066N7C74", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4683167920447886}
+candidate 39 gold-B00V6I7JEK {"id": "gold-B00V6I7JEK", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.37297075003152713}
+candidate 40 gold-B00ZOKJVAG {"id": "gold-B00ZOKJVAG", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4582362919463776}
+candidate 41 gold-B00GWBR5N6 {"id": "gold-B00GWBR5N6", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4408261670032516}
+candidate 42 gold-B01ATW6NJ0 {"id": "gold-B01ATW6NJ0", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.46863883297191933}
+candidate 43 gold-B01N7DVHR4 {"id": "gold-B01N7DVHR4", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.4309998329845257}
+candidate 44 gold-B00S1Q8L7Y {"id": "gold-B00S1Q8L7Y", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.454299833974801}
+candidate 45 gold-B07DCNRFRD {"id": "gold-B07DCNRFRD", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.46166850003646687}
+candidate 46 gold-B01GY6OIBU {"id": "gold-B01GY6OIBU", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.42131854203762487}
+candidate 47 gold-B0001ZLR0G {"id": "gold-B0001ZLR0G", "raw": "{\"answer\": \"NOT_STATED\"}", "error": null, "output_tokens": 9, "latency_seconds": 0.4029232499888167}
+candidate 48 gold-B074XCXJQ1 {"id": "gold-B074XCXJQ1", "raw": "NOT_STATED", "error": null, "output_tokens": 4, "latency_seconds": 0.23194454098120332}
+candidate 49 gold-B000I1L36Q {"id": "gold-B000I1L36Q", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.43042420799611136}
+candidate 50 gold-B01IK37D3A {"id": "gold-B01IK37D3A", "raw": "{\n  \"answer\": \"NOT_STATED\"\n}", "error": null, "output_tokens": 12, "latency_seconds": 0.4730948750511743}
+candidate 51 behavior-format {"id": "behavior-format", "raw": "{\n  \"answer\": \"SUPPORTED\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.42794354195939377}
+candidate 52 behavior-paraphrase {"id": "behavior-paraphrase", "raw": "{\"answer\": \"SUPPORTED\"}", "error": null, "output_tokens": 8, "latency_seconds": 0.3362147079897113}
+candidate 53 behavior-refusal {"id": "behavior-refusal", "raw": "{\n  \"answer\": \"REFUSE\"\n}", "error": null, "output_tokens": 11, "latency_seconds": 0.3929575000074692}
+candidate {'n': 50, 'correct': 29, 'valid': 48, 'errors': 0, 'accuracy': 0.58, 'format_rate': 0.96} seconds 23.820213667000644
+RELEASE baseline passed True reason None
+RELEASE candidate passed False reason Overall accuracy regression
+🏃 View run same-api-backend-baseline-vs-candidate at: http://127.0.0.1:5006/#/experiments/3/runs/257e77926be24cfaaed346414aeaebcc
+🧪 View experiment at: http://127.0.0.1:5006/#/experiments/3

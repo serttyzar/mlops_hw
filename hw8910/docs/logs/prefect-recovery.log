@@ -1,0 +1,13 @@
+01:18:23.426 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8708
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+01:18:25.029 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+ Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
+01:18:25.142 | INFO    | Flow run 'ludicrous-wyvern' - Beginning flow run 'ludicrous-wyvern' for flow 'hw8910-release'
+01:18:25.150 | INFO    | Task run 'validate-input-f15' - Finished in state Cached(type=COMPLETED)
+01:18:25.159 | INFO    | Flow run 'ludicrous-wyvern' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+01:18:25.161 | INFO    | Task run 'read-existing-training-artifact-93b' - Finished in state Completed()
+01:18:25.163 | INFO    | Task run 'full-evaluation-gate-53b' - Finished in state Completed()
+01:18:25.166 | INFO    | Task run 'publish-local-pointer-540' - PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+01:18:25.167 | INFO    | Task run 'publish-local-pointer-540' - Finished in state Completed()
+01:18:25.177 | INFO    | Flow run 'ludicrous-wyvern' - Finished in state Completed()
+01:18:25.187 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8708

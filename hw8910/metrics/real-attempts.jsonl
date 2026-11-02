@@ -1,0 +1,2 @@
+{"attempt_id": "f56dafdd-e4b0-446a-b609-9e44eb328d8c", "status": "published", "flow_run_id": "d18d7172-daa0-4a9d-a0a7-925b51b6fa52", "release_id": "0c907f2e6d98bc31550b0422ab679dcfb4b546ed93cad253ccdb73033a461b57"}
+{"attempt_id": "f21c102c-4bf9-4657-9d14-9d07466ffc91", "status": "failed", "flow_run_id": "5bf054e6-7dc4-4623-8f91-0b7c7bb0d267", "error": "ValueError: Quality gate rejected: Overall accuracy regression"}

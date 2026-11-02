@@ -1,0 +1,34 @@
+[
+  {
+    "starter_commit": "732ddae",
+    "test": "contracts-before",
+    "exit_code": 1,
+    "command": [
+      "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/tests",
+      "-p",
+      "test_release.py",
+      "-v"
+    ]
+  },
+  {
+    "starter_commit": "732ddae",
+    "test": "integration-before",
+    "exit_code": 1,
+    "command": [
+      "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/tests_integration",
+      "-p",
+      "test_process.py",
+      "-v"
+    ]
+  }
+]

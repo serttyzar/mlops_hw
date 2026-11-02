@@ -1,0 +1,95 @@
+INFO:     Started server process [15166]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:55057 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55061 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55062 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55063 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55064 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55065 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55066 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55067 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55068 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55069 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55070 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55071 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55072 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55073 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55074 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55075 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55076 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55077 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55078 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55079 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55080 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55081 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55082 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55083 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55084 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55085 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55086 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55087 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55088 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55089 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55090 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55091 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55092 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55093 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55094 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55095 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55096 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55098 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55099 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55100 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55101 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55102 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55103 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55104 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55105 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55106 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55107 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55108 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55109 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55110 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55111 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55112 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55113 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55114 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55115 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55116 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55117 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55118 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55119 - "GET /ready HTTP/1.1" 503 Service Unavailable
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]INFO:     127.0.0.1:55120 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55121 - "GET /ready HTTP/1.1" 503 Service Unavailable
+Loading weights: 100%|██████████| 311/311 [00:00<00:00, 21119.22it/s]
+INFO:     127.0.0.1:55122 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55123 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55124 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55125 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55126 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55127 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55128 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55129 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55130 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55131 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55132 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55133 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55135 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55136 - "GET /ready HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55137 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55138 - "GET /ready HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55139 - "GET /debug HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55140 - "POST /generate HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55141 - "POST /generate HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55142 - "POST /generate HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55143 - "POST /generate HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55144 - "POST /generate HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55145 - "GET /debug HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55146 - "POST /generate HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15166]
+/Users/serttyzar/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

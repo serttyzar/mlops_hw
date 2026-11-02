@@ -1,0 +1,15 @@
+{
+  "starter_commit": "732ddae6a29518245962cf976e14fcce2b02e1c6",
+  "fixed_code_commit": "64ac195e8e6259f9e88d6d912fbcbc861bf41733",
+  "check_exit_code": 0,
+  "check_total": 51,
+  "intentional_mutation_python_exit_code": 1,
+  "intentional_mutation_make_exit_code": 2,
+  "public_tests_unchanged": true,
+  "video": {
+    "path": "../../hw8910-demo.mp4",
+    "sha256": "077505dda4f17005d827432d2de352f12fbdfe271f95c42feedffe4b1b5fda3e",
+    "duration_seconds": 360,
+    "format": "Captioned playback of saved actual evidence; no audio; not a desktop capture"
+  }
+}

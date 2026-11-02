@@ -1,0 +1,14 @@
+01:21:03.545 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8802
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+01:21:05.124 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+ Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
+01:21:05.273 | INFO    | Flow run 'viridian-trogon' - Beginning flow run 'viridian-trogon' for flow 'hw8910-release'
+01:21:05.281 | INFO    | Task run 'validate-input-08e' - PREPARED 1ba604a6010df295156952620d31c1ff4c1a86ac32244e06e4e73748b25d594e
+01:21:05.282 | INFO    | Task run 'validate-input-08e' - Finished in state Completed()
+01:21:05.290 | INFO    | Flow run 'viridian-trogon' - PREPARATION_STATE Completed 1ba604a6010df295156952620d31c1ff4c1a86ac32244e06e4e73748b25d594e
+01:21:05.292 | INFO    | Task run 'read-existing-training-artifact-7f8' - Finished in state Completed()
+01:21:05.294 | INFO    | Task run 'full-evaluation-gate-f99' - Finished in state Completed()
+01:21:05.296 | INFO    | Task run 'publish-local-pointer-75d' - PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+01:21:05.297 | INFO    | Task run 'publish-local-pointer-75d' - Finished in state Completed()
+01:21:05.307 | INFO    | Flow run 'viridian-trogon' - Finished in state Completed()
+01:21:05.319 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8802

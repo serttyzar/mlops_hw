@@ -1,0 +1,14 @@
+01:23:42.170 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8285
+See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+01:23:43.705 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+ Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
+01:23:43.819 | INFO    | Flow run 'nondescript-bandicoot' - Beginning flow run 'nondescript-bandicoot' for flow 'hw8910-release'
+01:23:43.827 | INFO    | Task run 'validate-input-f2e' - Finished in state Cached(type=COMPLETED)
+01:23:43.835 | INFO    | Flow run 'nondescript-bandicoot' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+01:23:43.837 | INFO    | Task run 'read-existing-training-artifact-0ba' - Finished in state Completed()
+01:23:43.839 | INFO    | Task run 'full-evaluation-gate-468' - Finished in state Completed()
+01:23:43.841 | INFO    | Task run 'publish-local-pointer-114' - RECOVERED 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+01:23:43.843 | INFO    | Task run 'publish-local-pointer-114' - PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+01:23:43.844 | INFO    | Task run 'publish-local-pointer-114' - Finished in state Completed()
+01:23:43.854 | INFO    | Flow run 'nondescript-bandicoot' - Finished in state Completed()
+01:23:43.862 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8285

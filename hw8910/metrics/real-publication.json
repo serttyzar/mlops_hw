@@ -1,0 +1,34 @@
+[
+  {
+    "role": "baseline",
+    "command": [
+      ".venv/bin/python",
+      "flow.py",
+      "--workspace",
+      ".real",
+      "--manifest",
+      "manifest-baseline.json",
+      "--report",
+      "report-baseline.json"
+    ],
+    "exit_code": 0,
+    "before_sha256": null,
+    "after_sha256": "5b35d26b32e6024f8131785209858e033539afba0c52a4aa07b805af6e9cb404"
+  },
+  {
+    "role": "candidate",
+    "command": [
+      ".venv/bin/python",
+      "flow.py",
+      "--workspace",
+      ".real",
+      "--manifest",
+      "manifest-candidate.json",
+      "--report",
+      "report-candidate.json"
+    ],
+    "exit_code": 1,
+    "before_sha256": "5b35d26b32e6024f8131785209858e033539afba0c52a4aa07b805af6e9cb404",
+    "after_sha256": "5b35d26b32e6024f8131785209858e033539afba0c52a4aa07b805af6e9cb404"
+  }
+]

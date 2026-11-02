@@ -1,0 +1,12 @@
+flow-init 0 None
+flow-failure 1 PREPARATION_STATE Completed
+flow-recovery 0 PREPARATION_STATE Cached
+flow-invalidation 0 PREPARATION_STATE Completed
+flow-negative-init 0 None
+flow-negative-report-incomplete 1 None
+flow-negative-report-A 1 None
+flow-negative-report-reject 1 None
+flow-crash-init 0 None
+flow-crash 1 None
+flow-journal-recovery 0 RECOVERED
+flow-repeat 0 None

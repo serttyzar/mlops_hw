@@ -1,0 +1,19 @@
+{
+  "python": "3.12.14",
+  "system": "Darwin",
+  "machine": "arm64",
+  "macos": "26.3.1",
+  "packages": {
+    "prefect": "3.6.21",
+    "fastapi": "0.121.3",
+    "uvicorn": "0.38.0",
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "peft": "0.21.0",
+    "mlflow": "2.22.2"
+  },
+  "tests_unchanged": true,
+  "uv": "0.12.10",
+  "hw.model": "Mac15,7",
+  "hw.memsize": "38654705664"
+}

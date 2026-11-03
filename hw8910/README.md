@@ -8,7 +8,7 @@ backend, интеграционные тесты и реальные измер�
 API обслуживает исходную Qwen3-0.6B, закреплённую в baseline ДЗ 6+7.
 Повторного обучения/sweep нет. Прежние тесты не изменены.
 
-- [Единый отчёт](docs/conclusion.md), [изменения](docs/changes.md), [семь дефектов](defects.csv).
+- [Единый отчёт](docs/conclusion.md), [изменения](docs/changes.md), [семь дефектов](docs/defects.md), [таблица CSV](defects.csv).
 - [Команды и доступ к артефактам](docs/access.md), [видео](docs/video.md).
 - [Сырые ответы, отчёты и замер](metrics/), [красные/зелёные логи](docs/logs/).
 

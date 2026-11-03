@@ -1,14 +1,14 @@
-01:23:20.249 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8780
+17:04:37.308 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8820
 See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
-01:23:21.965 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+17:04:39.769 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
  Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
-01:23:22.097 | INFO    | Flow run 'saffron-gopher' - Beginning flow run 'saffron-gopher' for flow 'hw8910-release'
-01:23:22.106 | INFO    | Task run 'validate-input-8ea' - PREPARED 2e2594000fd263f492169f73b15477bb56f0467a77823cc9ecec4ba618a04ad1
-01:23:22.107 | INFO    | Task run 'validate-input-8ea' - Finished in state Completed()
-01:23:22.116 | INFO    | Flow run 'saffron-gopher' - PREPARATION_STATE Completed 2e2594000fd263f492169f73b15477bb56f0467a77823cc9ecec4ba618a04ad1
-01:23:22.118 | INFO    | Task run 'read-existing-training-artifact-e5f' - Finished in state Completed()
-01:23:22.120 | INFO    | Task run 'full-evaluation-gate-c7a' - Finished in state Completed()
-01:23:22.123 | INFO    | Task run 'publish-local-pointer-9f1' - PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
-01:23:22.124 | INFO    | Task run 'publish-local-pointer-9f1' - Finished in state Completed()
-01:23:22.136 | INFO    | Flow run 'saffron-gopher' - Finished in state Completed()
-01:23:22.147 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8780
+17:04:39.911 | INFO    | Flow run 'artificial-puma' - Beginning flow run 'artificial-puma' for flow 'hw8910-release'
+17:04:39.924 | INFO    | Task run 'validate-input-e6c' - PREPARED 2e2594000fd263f492169f73b15477bb56f0467a77823cc9ecec4ba618a04ad1
+17:04:39.927 | INFO    | Task run 'validate-input-e6c' - Finished in state Completed()
+17:04:39.939 | INFO    | Flow run 'artificial-puma' - PREPARATION_STATE Completed 2e2594000fd263f492169f73b15477bb56f0467a77823cc9ecec4ba618a04ad1
+17:04:39.942 | INFO    | Task run 'read-existing-training-artifact-340' - Finished in state Completed()
+17:04:39.945 | INFO    | Task run 'full-evaluation-gate-1d3' - Finished in state Completed()
+17:04:39.949 | INFO    | Task run 'publish-local-pointer-b3a' - PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+17:04:39.950 | INFO    | Task run 'publish-local-pointer-b3a' - Finished in state Completed()
+17:04:39.968 | INFO    | Flow run 'artificial-puma' - Finished in state Completed()
+17:04:39.987 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8820

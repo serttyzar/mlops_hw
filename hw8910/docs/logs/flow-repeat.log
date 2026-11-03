@@ -1,13 +1,13 @@
-01:23:45.583 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8106
+17:05:17.602 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8017
 See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
-01:23:47.154 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+17:05:20.054 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
  Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
-01:23:47.199 | INFO    | Flow run 'amaranth-duck' - Beginning flow run 'amaranth-duck' for flow 'hw8910-release'
-01:23:47.207 | INFO    | Task run 'validate-input-3c1' - Finished in state Cached(type=COMPLETED)
-01:23:47.215 | INFO    | Flow run 'amaranth-duck' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:47.217 | INFO    | Task run 'read-existing-training-artifact-ac5' - Finished in state Completed()
-01:23:47.219 | INFO    | Task run 'full-evaluation-gate-293' - Finished in state Completed()
-01:23:47.222 | INFO    | Task run 'publish-local-pointer-d59' - PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
-01:23:47.223 | INFO    | Task run 'publish-local-pointer-d59' - Finished in state Completed()
-01:23:47.234 | INFO    | Flow run 'amaranth-duck' - Finished in state Completed()
-01:23:47.245 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8106
+17:05:20.183 | INFO    | Flow run 'flawless-sawfly' - Beginning flow run 'flawless-sawfly' for flow 'hw8910-release'
+17:05:20.198 | INFO    | Task run 'validate-input-981' - Finished in state Cached(type=COMPLETED)
+17:05:20.211 | INFO    | Flow run 'flawless-sawfly' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:05:20.214 | INFO    | Task run 'read-existing-training-artifact-057' - Finished in state Completed()
+17:05:20.216 | INFO    | Task run 'full-evaluation-gate-6b5' - Finished in state Completed()
+17:05:20.220 | INFO    | Task run 'publish-local-pointer-fd1' - PUBLISHED fixture-B 330dceb4a062a6dbd7d2b1068989621f0aa10ac463e74ea41f90b97a2d318eda
+17:05:20.222 | INFO    | Task run 'publish-local-pointer-fd1' - Finished in state Completed()
+17:05:20.241 | INFO    | Flow run 'flawless-sawfly' - Finished in state Completed()
+17:05:20.256 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8017

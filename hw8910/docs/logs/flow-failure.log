@@ -1,12 +1,12 @@
-01:23:10.067 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8546
+17:04:22.599 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8793
 See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
-01:23:14.178 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+17:04:28.278 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
  Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
-01:23:14.298 | INFO    | Flow run 'kind-mussel' - Beginning flow run 'kind-mussel' for flow 'hw8910-release'
-01:23:14.309 | INFO    | Task run 'validate-input-2cd' - PREPARED 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:14.310 | INFO    | Task run 'validate-input-2cd' - Finished in state Completed()
-01:23:14.318 | INFO    | Flow run 'kind-mussel' - PREPARATION_STATE Completed 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:14.319 | ERROR   | Flow run 'kind-mussel' - Encountered exception during execution: RuntimeError('Injected failure after preparation')
+17:04:28.390 | INFO    | Flow run 'malachite-bittern' - Beginning flow run 'malachite-bittern' for flow 'hw8910-release'
+17:04:28.404 | INFO    | Task run 'validate-input-323' - PREPARED 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:04:28.406 | INFO    | Task run 'validate-input-323' - Finished in state Completed()
+17:04:28.417 | INFO    | Flow run 'malachite-bittern' - PREPARATION_STATE Completed 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:04:28.419 | ERROR   | Flow run 'malachite-bittern' - Encountered exception during execution: RuntimeError('Injected failure after preparation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 989, in run_context
     yield self
@@ -21,7 +21,7 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/flow.py", line 59, in release_flow
     raise RuntimeError('Injected failure after preparation')
 RuntimeError: Injected failure after preparation
-01:23:14.333 | INFO    | Flow run 'kind-mussel' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Injected failure after preparation')
+17:04:28.437 | INFO    | Flow run 'malachite-bittern' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Injected failure after preparation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/flow.py", line 83, in <module>
     main()
@@ -54,4 +54,4 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/flow.py", line 59, in release_flow
     raise RuntimeError('Injected failure after preparation')
 RuntimeError: Injected failure after preparation
-01:23:14.341 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8546
+17:04:28.447 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8793

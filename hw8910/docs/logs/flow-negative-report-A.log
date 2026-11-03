@@ -1,12 +1,12 @@
-01:23:29.373 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8661
+17:04:51.897 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8465
 See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
-01:23:30.892 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+17:04:54.353 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
  Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
-01:23:30.984 | INFO    | Flow run 'dynamic-wasp' - Beginning flow run 'dynamic-wasp' for flow 'hw8910-release'
-01:23:30.992 | INFO    | Task run 'validate-input-11f' - Finished in state Cached(type=COMPLETED)
-01:23:31.000 | INFO    | Flow run 'dynamic-wasp' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:31.002 | INFO    | Task run 'read-existing-training-artifact-2fd' - Finished in state Completed()
-01:23:31.003 | ERROR   | Task run 'full-evaluation-gate-248' - Task run failed with exception: ValueError('Report mismatch: model_id')
+17:04:54.477 | INFO    | Flow run 'unbiased-orangutan' - Beginning flow run 'unbiased-orangutan' for flow 'hw8910-release'
+17:04:54.492 | INFO    | Task run 'validate-input-553' - Finished in state Cached(type=COMPLETED)
+17:04:54.505 | INFO    | Flow run 'unbiased-orangutan' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:04:54.508 | INFO    | Task run 'read-existing-training-artifact-88d' - Finished in state Completed()
+17:04:54.510 | ERROR   | Task run 'full-evaluation-gate-3a6' - Task run failed with exception: ValueError('Report mismatch: model_id')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1014, in run_context
     yield self
@@ -23,8 +23,8 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 52, in validate_release
     raise ValueError('Report mismatch: ' + key)
 ValueError: Report mismatch: model_id
-01:23:31.005 | ERROR   | Task run 'full-evaluation-gate-248' - Finished in state Failed('Task run encountered an exception ValueError: Report mismatch: model_id')
-01:23:31.006 | ERROR   | Flow run 'dynamic-wasp' - Encountered exception during execution: ValueError('Report mismatch: model_id')
+17:04:54.515 | ERROR   | Task run 'full-evaluation-gate-3a6' - Finished in state Failed('Task run encountered an exception ValueError: Report mismatch: model_id')
+17:04:54.516 | ERROR   | Flow run 'unbiased-orangutan' - Encountered exception during execution: ValueError('Report mismatch: model_id')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 989, in run_context
     yield self
@@ -65,7 +65,7 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 52, in validate_release
     raise ValueError('Report mismatch: ' + key)
 ValueError: Report mismatch: model_id
-01:23:31.019 | INFO    | Flow run 'dynamic-wasp' - Finished in state Failed('Flow run encountered an exception: ValueError: Report mismatch: model_id')
+17:04:54.535 | INFO    | Flow run 'unbiased-orangutan' - Finished in state Failed('Flow run encountered an exception: ValueError: Report mismatch: model_id')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/flow.py", line 83, in <module>
     main()
@@ -124,4 +124,4 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 52, in validate_release
     raise ValueError('Report mismatch: ' + key)
 ValueError: Report mismatch: model_id
-01:23:31.031 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8661
+17:04:54.550 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8465

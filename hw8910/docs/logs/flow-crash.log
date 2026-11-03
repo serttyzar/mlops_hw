@@ -1,14 +1,14 @@
-01:23:36.341 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8671
+17:05:03.430 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8390
 See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
-01:23:39.862 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+17:05:08.639 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
  Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
-01:23:39.931 | INFO    | Flow run 'spiritual-meerkat' - Beginning flow run 'spiritual-meerkat' for flow 'hw8910-release'
-01:23:39.940 | INFO    | Task run 'validate-input-35b' - PREPARED 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:39.941 | INFO    | Task run 'validate-input-35b' - Finished in state Completed()
-01:23:39.949 | INFO    | Flow run 'spiritual-meerkat' - PREPARATION_STATE Completed 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:39.950 | INFO    | Task run 'read-existing-training-artifact-bcf' - Finished in state Completed()
-01:23:39.952 | INFO    | Task run 'full-evaluation-gate-c3f' - Finished in state Completed()
-01:23:39.955 | ERROR   | Task run 'publish-local-pointer-112' - Task run failed with exception: RuntimeError('Injected failure after pointer before ledger')
+17:05:08.803 | INFO    | Flow run 'ambrosial-woodpecker' - Beginning flow run 'ambrosial-woodpecker' for flow 'hw8910-release'
+17:05:08.819 | INFO    | Task run 'validate-input-438' - PREPARED 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:05:08.821 | INFO    | Task run 'validate-input-438' - Finished in state Completed()
+17:05:08.833 | INFO    | Flow run 'ambrosial-woodpecker' - PREPARATION_STATE Completed 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:05:08.836 | INFO    | Task run 'read-existing-training-artifact-431' - Finished in state Completed()
+17:05:08.839 | INFO    | Task run 'full-evaluation-gate-0ee' - Finished in state Completed()
+17:05:08.843 | ERROR   | Task run 'publish-local-pointer-341' - Task run failed with exception: RuntimeError('Injected failure after pointer before ledger')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1014, in run_context
     yield self
@@ -26,8 +26,8 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/publication.py", line 55, in publish_once
     raise RuntimeError('Injected failure after pointer before ledger')
 RuntimeError: Injected failure after pointer before ledger
-01:23:39.957 | ERROR   | Task run 'publish-local-pointer-112' - Finished in state Failed('Task run encountered an exception RuntimeError: Injected failure after pointer before ledger')
-01:23:39.958 | ERROR   | Flow run 'spiritual-meerkat' - Encountered exception during execution: RuntimeError('Injected failure after pointer before ledger')
+17:05:08.847 | ERROR   | Task run 'publish-local-pointer-341' - Finished in state Failed('Task run encountered an exception RuntimeError: Injected failure after pointer before ledger')
+17:05:08.848 | ERROR   | Flow run 'ambrosial-woodpecker' - Encountered exception during execution: RuntimeError('Injected failure after pointer before ledger')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 989, in run_context
     yield self
@@ -69,7 +69,7 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/publication.py", line 55, in publish_once
     raise RuntimeError('Injected failure after pointer before ledger')
 RuntimeError: Injected failure after pointer before ledger
-01:23:39.970 | INFO    | Flow run 'spiritual-meerkat' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Injected failure after pointer before ledger')
+17:05:08.866 | INFO    | Flow run 'ambrosial-woodpecker' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Injected failure after pointer before ledger')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/flow.py", line 83, in <module>
     main()
@@ -129,4 +129,4 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/publication.py", line 55, in publish_once
     raise RuntimeError('Injected failure after pointer before ledger')
 RuntimeError: Injected failure after pointer before ledger
-01:23:39.984 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8671
+17:05:08.883 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8390

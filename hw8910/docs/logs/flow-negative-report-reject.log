@@ -1,12 +1,12 @@
-01:23:32.858 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8927
+17:04:57.752 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8784
 See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
-01:23:34.415 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+17:05:00.218 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
  Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
-01:23:34.474 | INFO    | Flow run 'savvy-squirrel' - Beginning flow run 'savvy-squirrel' for flow 'hw8910-release'
-01:23:34.483 | INFO    | Task run 'validate-input-ddf' - Finished in state Cached(type=COMPLETED)
-01:23:34.492 | INFO    | Flow run 'savvy-squirrel' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:34.494 | INFO    | Task run 'read-existing-training-artifact-737' - Finished in state Completed()
-01:23:34.495 | ERROR   | Task run 'full-evaluation-gate-3de' - Task run failed with exception: ValueError('Incomplete or rejected evaluation')
+17:05:00.339 | INFO    | Flow run 'warm-hawk' - Beginning flow run 'warm-hawk' for flow 'hw8910-release'
+17:05:00.355 | INFO    | Task run 'validate-input-e0b' - Finished in state Cached(type=COMPLETED)
+17:05:00.369 | INFO    | Flow run 'warm-hawk' - PREPARATION_STATE Cached 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:05:00.372 | INFO    | Task run 'read-existing-training-artifact-4a6' - Finished in state Completed()
+17:05:00.374 | ERROR   | Task run 'full-evaluation-gate-680' - Task run failed with exception: ValueError('Incomplete or rejected evaluation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1014, in run_context
     yield self
@@ -23,8 +23,8 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 47, in validate_release
     raise ValueError('Incomplete or rejected evaluation')
 ValueError: Incomplete or rejected evaluation
-01:23:34.498 | ERROR   | Task run 'full-evaluation-gate-3de' - Finished in state Failed('Task run encountered an exception ValueError: Incomplete or rejected evaluation')
-01:23:34.498 | ERROR   | Flow run 'savvy-squirrel' - Encountered exception during execution: ValueError('Incomplete or rejected evaluation')
+17:05:00.379 | ERROR   | Task run 'full-evaluation-gate-680' - Finished in state Failed('Task run encountered an exception ValueError: Incomplete or rejected evaluation')
+17:05:00.380 | ERROR   | Flow run 'warm-hawk' - Encountered exception during execution: ValueError('Incomplete or rejected evaluation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 989, in run_context
     yield self
@@ -65,7 +65,7 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 47, in validate_release
     raise ValueError('Incomplete or rejected evaluation')
 ValueError: Incomplete or rejected evaluation
-01:23:34.510 | INFO    | Flow run 'savvy-squirrel' - Finished in state Failed('Flow run encountered an exception: ValueError: Incomplete or rejected evaluation')
+17:05:00.399 | INFO    | Flow run 'warm-hawk' - Finished in state Failed('Flow run encountered an exception: ValueError: Incomplete or rejected evaluation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/flow.py", line 83, in <module>
     main()
@@ -124,4 +124,4 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 47, in validate_release
     raise ValueError('Incomplete or rejected evaluation')
 ValueError: Incomplete or rejected evaluation
-01:23:34.522 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8927
+17:05:00.416 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8784

@@ -1,13 +1,13 @@
-01:23:24.105 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8197
+17:04:43.220 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8116
 See https://docs.prefect.io/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
-01:23:27.618 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
+17:04:48.553 | WARNING | prefect.server - Unable to write to memo_store.toml at /Users/serttyzar/.prefect/memo_store.toml after block auto-registration: FileNotFoundError(2, 'No such file or directory').
  Subsequent server start ups will perform block auto-registration, which may result in slower server startup.
-01:23:27.674 | INFO    | Flow run 'exotic-catfish' - Beginning flow run 'exotic-catfish' for flow 'hw8910-release'
-01:23:27.683 | INFO    | Task run 'validate-input-7f2' - PREPARED 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:27.684 | INFO    | Task run 'validate-input-7f2' - Finished in state Completed()
-01:23:27.692 | INFO    | Flow run 'exotic-catfish' - PREPARATION_STATE Completed 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
-01:23:27.694 | INFO    | Task run 'read-existing-training-artifact-e91' - Finished in state Completed()
-01:23:27.695 | ERROR   | Task run 'full-evaluation-gate-8fd' - Task run failed with exception: ValueError('Incomplete or rejected evaluation')
+17:04:48.708 | INFO    | Flow run 'neon-aardvark' - Beginning flow run 'neon-aardvark' for flow 'hw8910-release'
+17:04:48.723 | INFO    | Task run 'validate-input-dec' - PREPARED 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:04:48.726 | INFO    | Task run 'validate-input-dec' - Finished in state Completed()
+17:04:48.740 | INFO    | Flow run 'neon-aardvark' - PREPARATION_STATE Completed 88bbd559a04a7a432693a1c611ef2704bb711ac17dd5e22203ee9e5020f59fd4
+17:04:48.744 | INFO    | Task run 'read-existing-training-artifact-394' - Finished in state Completed()
+17:04:48.747 | ERROR   | Task run 'full-evaluation-gate-32f' - Task run failed with exception: ValueError('Incomplete or rejected evaluation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1014, in run_context
     yield self
@@ -24,8 +24,8 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 47, in validate_release
     raise ValueError('Incomplete or rejected evaluation')
 ValueError: Incomplete or rejected evaluation
-01:23:27.698 | ERROR   | Task run 'full-evaluation-gate-8fd' - Finished in state Failed('Task run encountered an exception ValueError: Incomplete or rejected evaluation')
-01:23:27.698 | ERROR   | Flow run 'exotic-catfish' - Encountered exception during execution: ValueError('Incomplete or rejected evaluation')
+17:04:48.753 | ERROR   | Task run 'full-evaluation-gate-32f' - Finished in state Failed('Task run encountered an exception ValueError: Incomplete or rejected evaluation')
+17:04:48.754 | ERROR   | Flow run 'neon-aardvark' - Encountered exception during execution: ValueError('Incomplete or rejected evaluation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 989, in run_context
     yield self
@@ -66,7 +66,7 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 47, in validate_release
     raise ValueError('Incomplete or rejected evaluation')
 ValueError: Incomplete or rejected evaluation
-01:23:27.709 | INFO    | Flow run 'exotic-catfish' - Finished in state Failed('Flow run encountered an exception: ValueError: Incomplete or rejected evaluation')
+17:04:48.774 | INFO    | Flow run 'neon-aardvark' - Finished in state Failed('Flow run encountered an exception: ValueError: Incomplete or rejected evaluation')
 Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/flow.py", line 83, in <module>
     main()
@@ -125,4 +125,4 @@ Traceback (most recent call last):
   File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw8910/release.py", line 47, in validate_release
     raise ValueError('Incomplete or rejected evaluation')
 ValueError: Incomplete or rejected evaluation
-01:23:27.721 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8197
+17:04:48.794 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8116

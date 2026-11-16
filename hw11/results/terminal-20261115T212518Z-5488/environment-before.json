@@ -1,0 +1,81 @@
+{
+  "recorded_at": "2026-11-15T21:25:21.000003+00:00",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "python": "3.12.14 (main, Sep  1 2026, 14:09:38) [Clang 22.1.3 ]",
+  "disk": {
+    "total": 994662584320,
+    "used": 879661490176,
+    "free": 115001094144
+  },
+  "required_budget": {
+    "vm_cpu": 4,
+    "vm_memory_gib": 6,
+    "free_disk_gib": 8
+  },
+  "probes": [
+    {
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{.Client.Version}} / {{.Server.Version}}"
+      ],
+      "returncode": 0,
+      "stdout": "29.9.2 / 29.5.2\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "info",
+        "--format",
+        "{\"cpu\":{{.NCPU}},\"memory\":{{.MemTotal}},\"os\":\"{{.OperatingSystem}}\"}"
+      ],
+      "returncode": 0,
+      "stdout": "{\"cpu\":4,\"memory\":6197370880,\"os\":\"Ubuntu 24.04.4 LTS\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "system",
+        "df"
+      ],
+      "returncode": 0,
+      "stdout": "TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE\nImages          3         1         1.746GB   27.7MB (1%)\nContainers      1         1         3.506MB   0B (0%)\nLocal Volumes   1         1         1.548GB   0B (0%)\nBuild Cache     0         0         0B        0B\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "kubectl",
+        "version",
+        "--client",
+        "-o",
+        "json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"clientVersion\": {\n    \"major\": \"1\",\n    \"minor\": \"32\",\n    \"gitVersion\": \"v1.32.2\",\n    \"gitCommit\": \"67a30c0adcf52bd3f56ff0893ce19966be12991f\",\n    \"gitTreeState\": \"clean\",\n    \"buildDate\": \"2025-02-12T21:26:09Z\",\n    \"goVersion\": \"go1.23.6\",\n    \"compiler\": \"gc\",\n    \"platform\": \"darwin/arm64\"\n  },\n  \"kustomizeVersion\": \"v5.5.0\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "helm",
+        "version",
+        "--short"
+      ],
+      "returncode": 0,
+      "stdout": "v3.16.4+g7877b45\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "kind",
+        "version"
+      ],
+      "returncode": 0,
+      "stdout": "kind v0.27.0 go1.23.6 darwin/arm64\n",
+      "stderr": ""
+    }
+  ],
+  "cluster_available": true
+}

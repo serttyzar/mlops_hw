@@ -1,0 +1,241 @@
+2026-11-15T21:29:16.726789377Z INFO:     Started server process [1]
+2026-11-15T21:29:16.726828627Z INFO:     Waiting for application startup.
+2026-11-15T21:29:16.727063128Z INFO:     Application startup complete.
+2026-11-15T21:29:16.727216295Z INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-11-15T21:29:18.018878441Z INFO:     10.244.0.1:49650 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:19.166263113Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:20.017662192Z INFO:     10.244.0.1:56898 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:21.167015699Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:22.017685644Z INFO:     10.244.0.1:56912 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:23.166776350Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:24.018784170Z INFO:     10.244.0.1:56926 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:25.167702326Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:26.018193885Z INFO:     10.244.0.1:56936 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:27.167866537Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:28.018115255Z INFO:     10.244.0.1:56940 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:29.167047772Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:30.018036530Z INFO:     10.244.0.1:39978 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:31.167895293Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:32.017786916Z INFO:     10.244.0.1:39984 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:33.166932502Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:34.018000083Z INFO:     10.244.0.1:39998 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:35.166877328Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:36.017723819Z INFO:     10.244.0.1:40006 - "GET /startup HTTP/1.1" 503 Service Unavailable
+2026-11-15T21:29:36.729126535Z {"event": "warmup_finished", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "ready": true, "wall": 1794778176.7284663}
+2026-11-15T21:29:37.167942479Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:38.018866173Z INFO:     10.244.0.1:40014 - "GET /startup HTTP/1.1" 200 OK
+2026-11-15T21:29:38.019707302Z INFO:     10.244.0.1:40018 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:39.005366497Z INFO:     10.244.0.9:45566 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:39.030512682Z INFO:     10.244.0.1:40032 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:39.173026925Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:39.711706478Z {"event": "request", "request_id": "A-rollout-46", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778179.7114956, "duration": 0.7144403049999255, "client_ip": "10.244.0.9", "session_id": "dialogue-14", "chunks": 2, "ttfc_seconds": 0.21272102700004325, "queue_seconds": 0.00019500100006553112, "cache_hit": false}
+2026-11-15T21:29:40.020022349Z INFO:     10.244.0.1:34948 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:41.005097245Z INFO:     10.244.0.12:41018 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:41.041742184Z INFO:     10.244.0.1:34950 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:29:41.052473894Z INFO:     10.244.0.1:34964 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:41.171907084Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:41.711661638Z {"event": "request", "request_id": "A-rollout-48", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778181.711029, "duration": 0.7070286040000155, "client_ip": "10.244.0.12", "session_id": "dialogue-0", "chunks": 2, "ttfc_seconds": 0.20472086800009492, "queue_seconds": 0.00036083500003769586, "cache_hit": false}
+2026-11-15T21:29:42.004639487Z INFO:     10.244.0.10:50374 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:42.030639925Z INFO:     10.244.0.1:34972 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:42.535876046Z {"event": "request", "request_id": "A-rollout-49", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778182.5354154, "duration": 0.5318018950001715, "client_ip": "10.244.0.10", "session_id": "dialogue-1", "chunks": 2, "ttfc_seconds": 0.028270656000131567, "queue_seconds": 0.0003209600001810031, "cache_hit": true}
+2026-11-15T21:29:43.021435505Z INFO:     10.244.0.1:34980 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:43.168338013Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:44.003734255Z INFO:     10.244.0.11:60772 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:44.031564242Z INFO:     10.244.0.1:34986 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:44.710972895Z {"event": "request", "request_id": "A-rollout-51", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778184.71015, "duration": 0.7075896419999026, "client_ip": "10.244.0.11", "session_id": "dialogue-3", "chunks": 2, "ttfc_seconds": 0.20417540600010398, "queue_seconds": 0.0003594190000058006, "cache_hit": false}
+2026-11-15T21:29:45.021343687Z INFO:     10.244.0.1:35002 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:45.167197523Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:46.006453734Z INFO:     10.244.0.10:50380 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:46.033523510Z INFO:     10.244.0.1:35012 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:29:46.033728010Z INFO:     10.244.0.1:35022 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:46.537622078Z {"event": "request", "request_id": "A-rollout-53", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778186.5373054, "duration": 0.5320789730001252, "client_ip": "10.244.0.10", "session_id": "dialogue-5", "chunks": 2, "ttfc_seconds": 0.0297595370000181, "queue_seconds": 0.0003442100000938808, "cache_hit": true}
+2026-11-15T21:29:47.006430005Z INFO:     10.244.0.9:46802 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:47.032746528Z INFO:     10.244.0.1:35038 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:47.169129701Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:47.536725969Z {"event": "request", "request_id": "A-rollout-54", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778187.536536, "duration": 0.5313356770000155, "client_ip": "10.244.0.9", "session_id": "dialogue-6", "chunks": 2, "ttfc_seconds": 0.028790448999870932, "queue_seconds": 0.0003499179999835178, "cache_hit": true}
+2026-11-15T21:29:48.006710525Z INFO:     10.244.0.11:60788 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:48.032694504Z INFO:     10.244.0.1:35046 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:48.536672861Z {"event": "request", "request_id": "A-rollout-55", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778188.536525, "duration": 0.5309954229999221, "client_ip": "10.244.0.11", "session_id": "dialogue-7", "chunks": 2, "ttfc_seconds": 0.028751822999993237, "queue_seconds": 0.0003389589999187592, "cache_hit": true}
+2026-11-15T21:29:49.000953433Z INFO:     10.244.0.12:41040 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:49.026740287Z INFO:     10.244.0.1:35062 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:49.166039679Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:49.531515896Z {"event": "request", "request_id": "A-rollout-56", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778189.5308325, "duration": 0.5309672980001778, "client_ip": "10.244.0.12", "session_id": "dialogue-8", "chunks": 2, "ttfc_seconds": 0.028161530000033963, "queue_seconds": 0.00028204300019751827, "cache_hit": true}
+2026-11-15T21:29:49.999787149Z INFO:     10.244.0.10:38694 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:50.025575503Z INFO:     10.244.0.1:56102 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:50.529982692Z {"event": "request", "request_id": "A-rollout-57", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778190.5294101, "duration": 0.5300078750001376, "client_ip": "10.244.0.10", "session_id": "dialogue-9", "chunks": 2, "ttfc_seconds": 0.027398068000138665, "queue_seconds": 0.00010404200020275312, "cache_hit": true}
+2026-11-15T21:29:51.005948350Z INFO:     10.244.0.9:37420 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:51.032406540Z INFO:     10.244.0.1:56110 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:29:51.032544415Z INFO:     10.244.0.1:56120 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:51.169317630Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:51.538098482Z {"event": "request", "request_id": "A-rollout-58", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778191.537162, "duration": 0.5324341340001411, "client_ip": "10.244.0.9", "session_id": "dialogue-10", "chunks": 2, "ttfc_seconds": 0.02912978400013344, "queue_seconds": 0.00034275200005140505, "cache_hit": true}
+2026-11-15T21:29:52.006649068Z INFO:     10.244.0.11:41804 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:52.038103486Z INFO:     10.244.0.1:56124 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:52.713308855Z {"event": "request", "request_id": "A-rollout-59", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778192.7128065, "duration": 0.7072972070000105, "client_ip": "10.244.0.11", "session_id": "dialogue-11", "chunks": 2, "ttfc_seconds": 0.20430565099991327, "queue_seconds": 0.00030845999981465866, "cache_hit": false}
+2026-11-15T21:29:53.001353800Z INFO:     10.244.0.12:34054 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:53.027561572Z INFO:     10.244.0.1:56130 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:53.167693591Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:53.534315808Z {"event": "request", "request_id": "A-rollout-60", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778193.5328298, "duration": 0.5326748390000375, "client_ip": "10.244.0.12", "session_id": "dialogue-12", "chunks": 2, "ttfc_seconds": 0.028651739999986603, "queue_seconds": 0.0002663339998889569, "cache_hit": true}
+2026-11-15T21:29:54.001093633Z INFO:     10.244.0.10:38710 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:54.026693652Z INFO:     10.244.0.1:56134 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:54.531774547Z {"event": "request", "request_id": "A-rollout-61", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778194.5310004, "duration": 0.530275119999942, "client_ip": "10.244.0.10", "session_id": "dialogue-13", "chunks": 2, "ttfc_seconds": 0.027216816999953153, "queue_seconds": 9.054199995262024e-05, "cache_hit": true}
+2026-11-15T21:29:55.000464462Z INFO:     10.244.0.9:37436 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:29:55.026103981Z INFO:     10.244.0.1:56140 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:55.168463425Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:55.530474163Z {"event": "request", "request_id": "A-rollout-62", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778195.5299246, "duration": 0.5298238660000152, "client_ip": "10.244.0.9", "session_id": "dialogue-14", "chunks": 2, "ttfc_seconds": 0.027289649999829635, "queue_seconds": 9.508299990557134e-05, "cache_hit": true}
+2026-11-15T21:29:56.018166194Z INFO:     10.244.0.1:56150 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:29:56.020317203Z INFO:     10.244.0.1:56156 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:57.020307570Z INFO:     10.244.0.1:56170 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:57.167984992Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:58.020788186Z INFO:     10.244.0.1:56176 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:59.020922173Z INFO:     10.244.0.1:56186 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:29:59.168075051Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:29:59.999892948Z INFO:     10.244.0.11:50362 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:00.026419970Z INFO:     10.244.0.1:41744 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:00.531552231Z {"event": "request", "request_id": "A-rollout-67", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778200.530942, "duration": 0.5314101989999926, "client_ip": "10.244.0.11", "session_id": "dialogue-3", "chunks": 2, "ttfc_seconds": 0.028184570000121312, "queue_seconds": 7.170800017775036e-05, "cache_hit": true}
+2026-11-15T21:30:01.018706504Z INFO:     10.244.0.1:41750 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:01.019747424Z INFO:     10.244.0.1:41754 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:01.168149348Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:02.002141957Z INFO:     10.244.0.10:45134 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:02.028217394Z INFO:     10.244.0.1:41768 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:02.531995564Z {"event": "request", "request_id": "A-rollout-69", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778202.5316522, "duration": 0.5303040250000777, "client_ip": "10.244.0.10", "session_id": "dialogue-5", "chunks": 2, "ttfc_seconds": 0.028107779000038136, "queue_seconds": 0.0002059600001302897, "cache_hit": true}
+2026-11-15T21:30:03.020571422Z INFO:     10.244.0.1:41772 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:03.168520968Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:04.021145480Z INFO:     10.244.0.1:41788 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:05.002405209Z INFO:     10.244.0.12:48390 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:05.029449025Z INFO:     10.244.0.1:41792 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:05.166442568Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:05.535539032Z {"event": "request", "request_id": "A-rollout-72", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778205.534075, "duration": 0.5327777380000498, "client_ip": "10.244.0.12", "session_id": "dialogue-8", "chunks": 2, "ttfc_seconds": 0.029380033000052208, "queue_seconds": 0.00029833400003553834, "cache_hit": true}
+2026-11-15T21:30:06.018582532Z INFO:     10.244.0.1:41800 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:06.020772790Z INFO:     10.244.0.1:41812 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:07.020992922Z INFO:     10.244.0.1:41824 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:07.167386002Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:08.020492923Z INFO:     10.244.0.1:41836 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:09.021541344Z INFO:     10.244.0.1:41852 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:09.169446263Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:10.021592425Z INFO:     10.244.0.1:52064 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:11.023830846Z INFO:     10.244.0.1:52076 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:11.024455598Z INFO:     10.244.0.1:52088 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:11.168127707Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:12.022058914Z INFO:     10.244.0.1:52098 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:12.026962892Z {"event": "request", "request_id": "8480f027-0984-424f-9824-12a90cb65c1d", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778212.0266511, "duration": 3.7241469339999185, "client_ip": "10.244.0.12", "session_id": "", "chunks": 8, "ttfc_seconds": 0.2016575479999574, "queue_seconds": 6.629199992858048e-05, "cache_hit": false}
+2026-11-15T21:30:12.027244810Z INFO:     10.244.0.12:48396 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:13.020668023Z INFO:     10.244.0.1:52106 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:13.168766191Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:14.020156008Z INFO:     10.244.0.1:52112 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:15.021160996Z INFO:     10.244.0.1:52118 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:15.168295076Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:16.020817101Z INFO:     10.244.0.1:52128 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:16.021960772Z INFO:     10.244.0.1:52134 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:17.023000839Z INFO:     10.244.0.1:52144 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:17.166492362Z INFO:     10.244.0.13:56646 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:18.022406229Z INFO:     10.244.0.1:52150 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:19.020417153Z INFO:     10.244.0.1:52164 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:19.061238689Z INFO:     10.244.0.10:52508 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:19.168888445Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:19.590972687Z {"event": "request", "request_id": "A-bad-release-1", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778219.5903447, "duration": 0.5294169969999984, "client_ip": "10.244.0.10", "session_id": "dialogue-1", "chunks": 2, "ttfc_seconds": 0.026743063999902006, "queue_seconds": 8.804200001577556e-05, "cache_hit": true}
+2026-11-15T21:30:20.020611833Z INFO:     10.244.0.1:51642 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:21.018372043Z INFO:     10.244.0.1:51658 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:21.020642719Z INFO:     10.244.0.1:51660 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:21.063460053Z INFO:     10.244.0.11:46782 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:21.166533083Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:21.593133548Z {"event": "request", "request_id": "A-bad-release-3", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778221.5925267, "duration": 0.5293911189999108, "client_ip": "10.244.0.11", "session_id": "dialogue-3", "chunks": 2, "ttfc_seconds": 0.026631936999820027, "queue_seconds": 8.962499987319461e-05, "cache_hit": true}
+2026-11-15T21:30:22.022273357Z INFO:     10.244.0.1:51666 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:22.047214997Z INFO:     10.244.0.12:52280 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:22.576542031Z {"event": "request", "request_id": "A-bad-release-4", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778222.5761757, "duration": 0.5298695779999889, "client_ip": "10.244.0.12", "session_id": "dialogue-4", "chunks": 2, "ttfc_seconds": 0.027369356999997763, "queue_seconds": 0.0002324179999959597, "cache_hit": true}
+2026-11-15T21:30:23.021014774Z INFO:     10.244.0.1:51676 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:23.165996967Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:24.022104864Z INFO:     10.244.0.1:51686 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:25.022497282Z INFO:     10.244.0.1:51692 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:25.166763972Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:26.021228482Z INFO:     10.244.0.1:51698 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:26.022066319Z INFO:     10.244.0.1:51714 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:26.050825057Z INFO:     10.244.0.12:52286 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:26.581075047Z {"event": "request", "request_id": "A-bad-release-8", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778226.5804386, "duration": 0.5305364910000208, "client_ip": "10.244.0.12", "session_id": "dialogue-8", "chunks": 2, "ttfc_seconds": 0.02776240000002872, "queue_seconds": 0.00025812599983510154, "cache_hit": true}
+2026-11-15T21:30:27.022268898Z INFO:     10.244.0.1:51720 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:27.049720630Z INFO:     10.244.0.10:44600 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:27.166980130Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:27.579527534Z {"event": "request", "request_id": "A-bad-release-9", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778227.5791168, "duration": 0.5303861149998284, "client_ip": "10.244.0.10", "session_id": "dialogue-9", "chunks": 2, "ttfc_seconds": 0.027703900000005888, "queue_seconds": 0.0002945429998817417, "cache_hit": true}
+2026-11-15T21:30:28.022965809Z INFO:     10.244.0.1:51722 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:28.050367041Z INFO:     10.244.0.9:55466 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:28.581718242Z {"event": "request", "request_id": "A-bad-release-10", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778228.5800762, "duration": 0.5305748639998455, "client_ip": "10.244.0.9", "session_id": "dialogue-10", "chunks": 2, "ttfc_seconds": 0.02791856699991513, "queue_seconds": 0.00023383399980048125, "cache_hit": true}
+2026-11-15T21:30:29.023350759Z INFO:     10.244.0.1:51736 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:29.166001441Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:30.020910903Z INFO:     10.244.0.1:54644 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:31.021023346Z INFO:     10.244.0.1:54650 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:31.022218851Z INFO:     10.244.0.1:54664 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:31.046824697Z INFO:     10.244.0.10:49912 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:31.167025207Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:31.576900222Z {"event": "request", "request_id": "A-bad-release-13", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778231.5764065, "duration": 0.530341609000061, "client_ip": "10.244.0.10", "session_id": "dialogue-13", "chunks": 2, "ttfc_seconds": 0.027893066999922667, "queue_seconds": 0.00014866700007587497, "cache_hit": true}
+2026-11-15T21:30:32.022094541Z INFO:     10.244.0.1:54678 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:33.022446939Z INFO:     10.244.0.1:54688 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:33.048329164Z INFO:     10.244.0.11:60666 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:33.167361586Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:33.577665934Z {"event": "request", "request_id": "A-bad-release-15", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778233.577524, "duration": 0.5305276080000567, "client_ip": "10.244.0.11", "session_id": "dialogue-15", "chunks": 2, "ttfc_seconds": 0.027899776000140264, "queue_seconds": 0.0005562520000239601, "cache_hit": true}
+2026-11-15T21:30:34.023050085Z INFO:     10.244.0.1:54690 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:35.023279727Z INFO:     10.244.0.1:54706 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:35.167216620Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:36.021035399Z INFO:     10.244.0.1:54718 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:36.022377321Z INFO:     10.244.0.1:54730 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:36.049650343Z INFO:     10.244.0.9:51518 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:36.580143655Z {"event": "request", "request_id": "A-bad-release-18", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778236.5794408, "duration": 0.5308799389999876, "client_ip": "10.244.0.9", "session_id": "dialogue-2", "chunks": 2, "ttfc_seconds": 0.02787419200012664, "queue_seconds": 0.00033920999999281776, "cache_hit": true}
+2026-11-15T21:30:37.025266802Z INFO:     10.244.0.1:54744 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:37.051127986Z INFO:     10.244.0.11:60680 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:37.166752685Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:37.583009885Z {"event": "request", "request_id": "A-bad-release-19", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778237.581781, "duration": 0.5317418570000427, "client_ip": "10.244.0.11", "session_id": "dialogue-3", "chunks": 2, "ttfc_seconds": 0.028616652999971848, "queue_seconds": 0.0003440430000409833, "cache_hit": true}
+2026-11-15T21:30:38.024021056Z INFO:     10.244.0.1:54758 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:39.022963600Z INFO:     10.244.0.1:54762 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:39.166523282Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:40.021944017Z INFO:     10.244.0.1:32978 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:40.048546912Z INFO:     10.244.0.9:41462 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:40.578806301Z {"event": "request", "request_id": "A-bad-release-22", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778240.5786042, "duration": 0.5305000979999477, "client_ip": "10.244.0.9", "session_id": "dialogue-6", "chunks": 2, "ttfc_seconds": 0.02712389700013773, "queue_seconds": 0.00013295899998411187, "cache_hit": true}
+2026-11-15T21:30:40.944421760Z INFO:     10.244.0.12:53432 - "GET /info HTTP/1.1" 200 OK
+2026-11-15T21:30:41.018356421Z INFO:     10.244.0.1:32984 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:41.020773973Z INFO:     10.244.0.1:32988 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:41.166728871Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:42.021535683Z INFO:     10.244.0.1:33004 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:42.044654564Z INFO:     10.244.0.12:59730 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:42.576498124Z {"event": "request", "request_id": "A-bad-release-24", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778242.5760245, "duration": 0.5318696009999258, "client_ip": "10.244.0.12", "session_id": "dialogue-8", "chunks": 2, "ttfc_seconds": 0.027040563000127804, "queue_seconds": 0.00013208399991526676, "cache_hit": true}
+2026-11-15T21:30:43.022721726Z INFO:     10.244.0.1:33016 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:43.166802159Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:44.021237882Z INFO:     10.244.0.1:33018 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:45.021101874Z INFO:     10.244.0.1:33034 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:45.044539381Z INFO:     10.244.0.11:38300 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:45.167072521Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:45.574366804Z {"event": "request", "request_id": "A-bad-release-27", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778245.5740397, "duration": 0.5302631319998454, "client_ip": "10.244.0.11", "session_id": "dialogue-11", "chunks": 2, "ttfc_seconds": 0.027091896000001725, "queue_seconds": 0.00020191699991300993, "cache_hit": true}
+2026-11-15T21:30:46.018430895Z INFO:     10.244.0.1:33046 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:46.020175068Z INFO:     10.244.0.1:33052 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:47.022805608Z INFO:     10.244.0.1:33060 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:47.049591628Z INFO:     10.244.0.10:51516 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:47.167356207Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:47.581723765Z {"event": "request", "request_id": "A-bad-release-29", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778247.5812395, "duration": 0.5329237240000566, "client_ip": "10.244.0.10", "session_id": "dialogue-13", "chunks": 2, "ttfc_seconds": 0.02829236000002311, "queue_seconds": 0.0003212100000382634, "cache_hit": true}
+2026-11-15T21:30:48.023700930Z INFO:     10.244.0.1:33062 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:48.048534150Z INFO:     10.244.0.9:41484 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:48.581050788Z {"event": "request", "request_id": "A-bad-release-30", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778248.5799716, "duration": 0.5329958059999171, "client_ip": "10.244.0.9", "session_id": "dialogue-14", "chunks": 2, "ttfc_seconds": 0.028655484999944747, "queue_seconds": 0.000815627999827484, "cache_hit": true}
+2026-11-15T21:30:49.022807534Z INFO:     10.244.0.1:33066 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:49.050369432Z INFO:     10.244.0.11:38306 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:49.166612422Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:49.582617984Z {"event": "request", "request_id": "A-bad-release-31", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778249.5818863, "duration": 0.5324128859999746, "client_ip": "10.244.0.11", "session_id": "dialogue-15", "chunks": 2, "ttfc_seconds": 0.028839236000067103, "queue_seconds": 0.00018454299993209133, "cache_hit": true}
+2026-11-15T21:30:50.022067095Z INFO:     10.244.0.1:49660 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:51.019612522Z INFO:     10.244.0.1:49670 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:51.020007565Z INFO:     10.244.0.1:49672 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:51.046067749Z INFO:     10.244.0.10:40144 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:51.166684922Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:51.579130593Z {"event": "request", "request_id": "A-bad-release-33", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778251.577392, "duration": 0.5318160059998718, "client_ip": "10.244.0.10", "session_id": "dialogue-1", "chunks": 2, "ttfc_seconds": 0.02700489599988032, "queue_seconds": 0.0001367089998893789, "cache_hit": true}
+2026-11-15T21:30:52.023659847Z INFO:     10.244.0.1:49688 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:52.051279453Z INFO:     10.244.0.9:47558 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:52.581770162Z {"event": "request", "request_id": "A-bad-release-34", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778252.5814025, "duration": 0.531528795999975, "client_ip": "10.244.0.9", "session_id": "dialogue-2", "chunks": 2, "ttfc_seconds": 0.027823940999951446, "queue_seconds": 0.00032829300016601337, "cache_hit": true}
+2026-11-15T21:30:53.023979405Z INFO:     10.244.0.1:49700 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:53.048932918Z INFO:     10.244.0.11:37820 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:53.167134289Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:53.579660834Z {"event": "request", "request_id": "A-bad-release-35", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778253.5790052, "duration": 0.5309292920001099, "client_ip": "10.244.0.11", "session_id": "dialogue-3", "chunks": 2, "ttfc_seconds": 0.0274727299999995, "queue_seconds": 0.00017950000005839684, "cache_hit": true}
+2026-11-15T21:30:54.023160165Z INFO:     10.244.0.1:49702 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:54.051192356Z INFO:     10.244.0.12:38518 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:54.585979078Z {"event": "request", "request_id": "A-bad-release-36", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778254.5857155, "duration": 0.5356868090000262, "client_ip": "10.244.0.12", "session_id": "dialogue-4", "chunks": 2, "ttfc_seconds": 0.02866723500005719, "queue_seconds": 0.00032333400008610624, "cache_hit": true}
+2026-11-15T21:30:55.020871209Z INFO:     10.244.0.1:49712 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:55.046844183Z INFO:     10.244.0.10:40158 - "POST /generate HTTP/1.1" 200 OK
+2026-11-15T21:30:55.166544310Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK
+2026-11-15T21:30:55.577571847Z {"event": "request", "request_id": "A-bad-release-37", "pod": "hw11-api-85dc564c8d-rwc79", "version": "B", "artifact_sha256": "6cc22fac671cb7cd543fd6a7aff0d049bc7afe16431c08a0dd88bda5868628ff", "backend_mode": "simulated", "outcome": "completed", "wall": 1794778255.5769033, "duration": 0.5305791640000734, "client_ip": "10.244.0.10", "session_id": "dialogue-5", "chunks": 2, "ttfc_seconds": 0.027548064000029626, "queue_seconds": 0.0001411260000168113, "cache_hit": true}
+2026-11-15T21:30:56.018677917Z INFO:     10.244.0.1:49720 - "GET /live HTTP/1.1" 200 OK
+2026-11-15T21:30:56.019857838Z INFO:     10.244.0.1:49724 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:57.021485725Z INFO:     10.244.0.1:49736 - "GET /ready HTTP/1.1" 200 OK
+2026-11-15T21:30:57.167420952Z INFO:     10.244.0.13:53112 - "GET /metrics HTTP/1.1" 200 OK

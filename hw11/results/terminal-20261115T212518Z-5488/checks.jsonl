@@ -1,0 +1,29 @@
+{"name": "four_distinct_client_ips", "passed": true, "wall": 1794777978.308931}
+{"name": "warmup_defect_reproduced", "passed": true, "wall": 1794778024.6449122, "unready_responses": 32}
+{"name": "warmup_fixed_no_unready_requests", "passed": true, "wall": 1794778070.606401, "unready_responses": 0}
+{"name": "graceful_rollout_zero_5xx_and_incomplete", "passed": true, "wall": 1794778207.884424, "outcomes": {"completed": 76, "rejected": 0, "aborted": 0, "timed_out": 0, "transport_error": 0}}
+{"name": "version_B_actually_loaded", "passed": true, "wall": 1794778212.02409}
+{"name": "bad_pod_not_ready", "passed": true, "wall": 1794778241.342599}
+{"name": "bad_release_created", "passed": true, "wall": 1794778241.342839}
+{"name": "bad_release_excluded_from_answers", "passed": true, "wall": 1794778257.780542}
+{"name": "loaded_A_after_rollback", "passed": true, "wall": 1794778323.831993}
+{"name": "forced_exit_recorded_incomplete_stream", "passed": true, "wall": 1794778386.042506, "observed": "aborted"}
+{"name": "service_recovered_after_forced_exit", "passed": true, "wall": 1794778390.232874}
+{"name": "replacement_restores_version_and_dialogue", "passed": true, "wall": 1794778425.722134}
+{"name": "two_dialogues_isolated", "passed": true, "wall": 1794778433.994575}
+{"name": "B-uniform-plain-1-cold-cache", "passed": true, "wall": 1794778544.331572}
+{"name": "B-uniform-affinity-1-cold-cache", "passed": true, "wall": 1794778729.032817}
+{"name": "B-uniform-affinity-2-cold-cache", "passed": true, "wall": 1794778921.3914108}
+{"name": "B-uniform-plain-2-cold-cache", "passed": true, "wall": 1794779113.1220639}
+{"name": "B-uniform-plain-3-cold-cache", "passed": true, "wall": 1794779297.043196}
+{"name": "B-uniform-affinity-3-cold-cache", "passed": true, "wall": 1794779481.129638}
+{"name": "B-skew-plain-1-cold-cache", "passed": true, "wall": 1794779672.827441}
+{"name": "B-skew-affinity-1-cold-cache", "passed": true, "wall": 1794779857.11753}
+{"name": "B-skew-affinity-2-cold-cache", "passed": true, "wall": 1794780048.908021}
+{"name": "B-skew-plain-2-cold-cache", "passed": true, "wall": 1794780240.822459}
+{"name": "B-skew-plain-3-cold-cache", "passed": true, "wall": 1794780424.814689}
+{"name": "B-skew-affinity-3-cold-cache", "passed": true, "wall": 1794780611.025711}
+{"name": "hpa_2_to_3_to_2", "passed": true, "wall": 1794781079.4019258}
+{"name": "HighTTFC-pending-firing", "passed": true, "wall": 1794781742.625406, "states": ["firing", "pending"]}
+{"name": "HighFailureRatio-pending-firing", "passed": true, "wall": 1794781742.6269178, "states": ["firing", "pending"]}
+{"name": "alerts_returned_to_normal", "passed": true, "wall": 1794781742.711551}

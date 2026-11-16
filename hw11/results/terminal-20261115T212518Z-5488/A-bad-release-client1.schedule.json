@@ -1,0 +1,132 @@
+{
+  "sha256": "a30b2c873d59320e990dc9faa7ff6893ac080b60970f27492e216c9bc11fbab7",
+  "start_wall": 1794778218.039691,
+  "client": 1,
+  "rows": [
+    {
+      "index": 1,
+      "offset": 1.0,
+      "client": 1,
+      "payload": {
+        "prompt": "warrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarranty question-1",
+        "session_id": "dialogue-1",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 5,
+      "offset": 5.0,
+      "client": 1,
+      "payload": {
+        "prompt": "warrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarranty question-5",
+        "session_id": "dialogue-5",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 9,
+      "offset": 9.0,
+      "client": 1,
+      "payload": {
+        "prompt": "returnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturns question-9",
+        "session_id": "dialogue-9",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 13,
+      "offset": 13.0,
+      "client": 1,
+      "payload": {
+        "prompt": "warrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarranty question-13",
+        "session_id": "dialogue-13",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 17,
+      "offset": 17.0,
+      "client": 1,
+      "payload": {
+        "prompt": "cataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecataloguecatalogue question-17",
+        "session_id": "dialogue-1",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 21,
+      "offset": 21.0,
+      "client": 1,
+      "payload": {
+        "prompt": "supportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupportsupport question-21",
+        "session_id": "dialogue-5",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 25,
+      "offset": 25.0,
+      "client": 1,
+      "payload": {
+        "prompt": "warrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarranty question-25",
+        "session_id": "dialogue-9",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 29,
+      "offset": 29.0,
+      "client": 1,
+      "payload": {
+        "prompt": "warrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarrantywarranty question-29",
+        "session_id": "dialogue-13",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 33,
+      "offset": 33.0,
+      "client": 1,
+      "payload": {
+        "prompt": "returnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturns question-33",
+        "session_id": "dialogue-1",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    },
+    {
+      "index": 37,
+      "offset": 37.0,
+      "client": 1,
+      "payload": {
+        "prompt": "returnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturnsreturns question-37",
+        "session_id": "dialogue-5",
+        "messages": [],
+        "max_new_tokens": 2,
+        "stream": true
+      }
+    }
+  ],
+  "keepalive": false,
+  "duration": 40.0,
+  "rate": 1.0,
+  "traffic": "uniform",
+  "clock": "perf_counter durations; wall clock only for cross-Pod epoch"
+}

@@ -1,0 +1,167 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hw11
+      meta.helm.sh/release-namespace: hw11
+    creationTimestamp: "2026-11-15T21:25:51Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: hw11-affinity
+    namespace: hw11
+    resourceVersion: "2163"
+    uid: db45b966-c385-410d-949a-c885a148b911
+  spec:
+    clusterIP: 10.96.131.129
+    clusterIPs:
+    - 10.96.131.129
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+      targetPort: http
+    selector:
+      app: hw11-api
+      release: hw11
+    sessionAffinity: ClientIP
+    sessionAffinityConfig:
+      clientIP:
+        timeoutSeconds: 600
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hw11
+      meta.helm.sh/release-namespace: hw11
+    creationTimestamp: "2026-11-15T21:25:51Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: hw11-grafana
+    namespace: hw11
+    resourceVersion: "2159"
+    uid: 5111806b-2fb6-4247-b93f-29b3f3f07c83
+  spec:
+    clusterIP: 10.96.29.178
+    clusterIPs:
+    - 10.96.29.178
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+    selector:
+      app: hw11-grafana
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hw11
+      meta.helm.sh/release-namespace: hw11
+    creationTimestamp: "2026-11-15T21:25:51Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: hw11-plain
+    namespace: hw11
+    resourceVersion: "2155"
+    uid: c545e875-512d-4a06-972c-2b8adc5a15cc
+  spec:
+    clusterIP: 10.96.18.234
+    clusterIPs:
+    - 10.96.18.234
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+      targetPort: http
+    selector:
+      app: hw11-api
+      release: hw11
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hw11
+      meta.helm.sh/release-namespace: hw11
+    creationTimestamp: "2026-11-15T21:25:51Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: hw11-prometheus
+    namespace: hw11
+    resourceVersion: "2147"
+    uid: a0e556a0-cca1-4531-a1a4-fd3cd06db074
+  spec:
+    clusterIP: 10.96.243.149
+    clusterIPs:
+    - 10.96.243.149
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 9090
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      app: hw11-prometheus
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: hw11
+      meta.helm.sh/release-namespace: hw11
+    creationTimestamp: "2026-11-15T21:25:51Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: hw11-state-metrics
+    namespace: hw11
+    resourceVersion: "2150"
+    uid: f40adce9-0749-4074-8154-29c8e6799e5c
+  spec:
+    clusterIP: 10.96.46.209
+    clusterIPs:
+    - 10.96.46.209
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: hw11-state-metrics
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

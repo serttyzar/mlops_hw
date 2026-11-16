@@ -1,0 +1,18 @@
+{
+  "shell_checks": [
+    {
+      "file": "scripts/run_local.sh",
+      "syntax_ok": true
+    },
+    {
+      "file": "Запустить ДЗ 11.command",
+      "syntax_ok": true
+    },
+    {
+      "file": "Остановить стенд ДЗ 11.command",
+      "syntax_ok": true
+    }
+  ],
+  "actual_terminal_run": false,
+  "reason": "Must be opened by the user; agent permissions unchanged"
+}

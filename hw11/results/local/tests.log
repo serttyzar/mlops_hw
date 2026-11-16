@@ -1,0 +1,94 @@
+test_classic_histogram_aggregates_cumulative_buckets (test_analysis.AnalysisTests.test_classic_histogram_aggregates_cumulative_buckets) ... ok
+test_comparison_rejects_restarted_pod_cohort (test_analysis.AnalysisTests.test_comparison_rejects_restarted_pod_cohort) ... ok
+test_empty_directory_cannot_pass_submission_gate (test_analysis.AnalysisTests.test_empty_directory_cannot_pass_submission_gate) ... ok
+test_quantiles_and_single_chunk_have_no_inter_chunk_latency (test_analysis.AnalysisTests.test_quantiles_and_single_chunk_have_no_inter_chunk_latency) ... ok
+test_success_percentile_does_not_hide_error_denominator (test_analysis.AnalysisTests.test_success_percentile_does_not_hide_error_denominator) ... ok
+test_application_commands_keep_hw11_namespace (test_cluster_commands.ClusterCommandTests.test_application_commands_keep_hw11_namespace) ... ok
+test_metrics_server_install_uses_kube_system (test_cluster_commands.ClusterCommandTests.test_metrics_server_install_uses_kube_system) ... ok
+test_compressed_checkout_preserves_records (test_evidence_io.EvidenceIOTests.test_compressed_checkout_preserves_records) ... ok
+test_live_uncompressed_log_remains_readable (test_evidence_io.EvidenceIOTests.test_live_uncompressed_log_remains_readable) ... ok
+test_disconnect_counts_aborted_and_releases_admission (test_local.AsyncTests.test_disconnect_counts_aborted_and_releases_admission) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848274.445324}
+{"event": "request", "request_id": "abdeb7f6-0395-4018-8ce1-27b16d3cf0f1", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "aborted", "wall": 1794848274.4799, "duration": 0.02371245899121277, "client_ip": "127.0.0.1", "session_id": "", "chunks": 1, "queue_seconds": 0.0010261669813189656}
+ok
+test_queue_bound_rejects_and_recovers (test_local.AsyncTests.test_queue_bound_rejects_and_recovers) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848274.483407}
+{"event": "request", "request_id": "d66f6458-6ded-4b8b-82d8-35ccd36b9f18", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "rejected", "wall": 1794848274.5051389, "duration": 8.07089963927865e-05, "client_ip": "127.0.0.1", "reason": "queue_full"}
+HTTP Request: POST http://local/generate "HTTP/1.1 429 Too Many Requests"
+{"event": "request", "request_id": "a5840143-2eff-4f8b-942b-77f8c06c8280", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848274.719041, "duration": 0.22418012499110773, "client_ip": "127.0.0.1", "session_id": "", "chunks": 64, "ttfc_seconds": 0.007503667002310976, "queue_seconds": 0.0002325839886907488, "cache_hit": false}
+HTTP Request: POST http://local/generate "HTTP/1.1 200 OK"
+HTTP Request: GET http://local/metrics "HTTP/1.1 200 OK"
+ok
+test_queue_timeout_is_rejection_and_slot_is_not_leaked (test_local.AsyncTests.test_queue_timeout_is_rejection_and_slot_is_not_leaked) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848274.722839}
+{"event": "request", "request_id": "173dc243-b5fa-4e18-beb4-3f1f47ddc524", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "rejected", "wall": 1794848274.750704, "duration": 0.01019945798907429, "client_ip": "127.0.0.1", "reason": "queue_timeout"}
+HTTP Request: POST http://local/generate "HTTP/1.1 429 Too Many Requests"
+{"event": "request", "request_id": "157b6ad7-7cb3-4a7b-9c35-f7c8dbefa0cc", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848274.962429, "duration": 0.22812495799735188, "client_ip": "127.0.0.1", "session_id": "", "chunks": 64, "ttfc_seconds": 0.006727541011059657, "queue_seconds": 0.00017354098963551223, "cache_hit": false}
+HTTP Request: POST http://local/generate "HTTP/1.1 200 OK"
+ok
+test_real_client_parser_detects_missing_terminal_frame (test_local.AsyncTests.test_real_client_parser_detects_missing_terminal_frame) ... HTTP Request: POST http://local/generate "HTTP/1.1 200 OK"
+ok
+test_response_start_failure_does_not_leak_slot (test_local.AsyncTests.test_response_start_failure_does_not_leak_slot) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848274.970138}
+{"event": "request", "request_id": "9cf41197-2bd3-44f4-a337-f955cc3e5599", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "aborted", "wall": 1794848274.981567, "duration": 0.0003522500046528876, "client_ip": "127.0.0.1", "session_id": "", "chunks": 0, "queue_seconds": 0.00022104100207798183}
+ok
+test_bad_artifact_stays_unready_without_liveness_failure (test_local.ServiceTests.test_bad_artifact_stays_unready_without_liveness_failure) ... {"event": "warmup_finished", "pod": "local", "version": "BAD", "ready": false, "wall": 1794848274.9855402}
+HTTP Request: GET http://testserver/live "HTTP/1.1 200 OK"
+HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+{"event": "request", "request_id": "fe1f3fd4-dd41-43bb-80ef-5b0f9df4accb", "pod": "local", "version": "BAD", "artifact_sha256": "a3c1e09f9eb5471a47fcc502024e21c2f7b5a82a2884fb8989cdd1f7edd2e03e", "backend_mode": "simulated", "outcome": "rejected", "wall": 1794848274.998793, "duration": 9.133398998528719e-05, "client_ip": "testclient", "reason": "backend_unready"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 503 Service Unavailable"
+ok
+test_client_accounting_catches_truncated_and_timed_out (test_local.ServiceTests.test_client_accounting_catches_truncated_and_timed_out) ... ok
+test_dialogue_isolation_and_old_api_contract (test_local.ServiceTests.test_dialogue_isolation_and_old_api_contract) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848275.00089}
+{"event": "request", "request_id": "c9b6eb6f-0bcc-489a-bea7-7728aa24f200", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848275.0341618, "duration": 0.02175429102499038, "client_ip": "testclient", "session_id": "", "chunks": 8, "ttfc_seconds": 0.005202208005357534, "queue_seconds": 0.0007405409996863455, "cache_hit": false}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 200 OK"
+{"event": "request", "request_id": "22403459-6098-43b1-994f-8d2a713d3c2b", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848275.055987, "duration": 0.02101204200880602, "client_ip": "testclient", "session_id": "", "chunks": 8, "ttfc_seconds": 0.004381957987789065, "queue_seconds": 8.158298442140222e-05, "cache_hit": false}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 200 OK"
+{"event": "request", "request_id": "d36e89b4-a94b-46a2-aad3-1f7f44ca1bbe", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "invalid", "wall": 1794848275.057102, "duration": 9.175000013783574e-05, "client_ip": "testclient", "reason": "invalid_request"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 400 Bad Request"
+{"event": "request", "request_id": "14142ae4-e958-4993-9af8-8dc9e22eac49", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "invalid", "wall": 1794848275.05758, "duration": 4.5958004193380475e-05, "client_ip": "testclient", "reason": "invalid_request"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 400 Bad Request"
+{"event": "request", "request_id": "c6bd37ac-fa27-4b11-93ce-1c4a7f8fa7f8", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "invalid", "wall": 1794848275.0584939, "duration": 0.0005104579904582351, "client_ip": "testclient", "reason": "invalid_request"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 400 Bad Request"
+{"event": "request", "request_id": "c1ddd974-c84c-4dd5-a319-a080a782dae2", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "rejected", "wall": 1794848275.058978, "duration": 3.312501939944923e-05, "client_ip": "testclient", "reason": "body_too_large"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 413 Request Entity Too Large"
+ok
+test_drain_refuses_new_requests_and_preserves_liveness (test_local.ServiceTests.test_drain_refuses_new_requests_and_preserves_liveness) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848275.0616791}
+HTTP Request: POST http://testserver/drain "HTTP/1.1 200 OK"
+HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+HTTP Request: GET http://testserver/live "HTTP/1.1 200 OK"
+{"event": "request", "request_id": "ca99cde2-5f04-44a1-b077-c138b0ed4cd4", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "rejected", "wall": 1794848275.074396, "duration": 7.504198583774269e-05, "client_ip": "testclient", "reason": "draining"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 503 Service Unavailable"
+ok
+test_open_loop_schedule_reproducible_and_has_four_ips (test_local.ServiceTests.test_open_loop_schedule_reproducible_and_has_four_ips) ... ok
+test_previous_backend_interface_and_checksums (test_local.ServiceTests.test_previous_backend_interface_and_checksums) ... ok
+test_red_then_green_warmup (test_local.ServiceTests.test_red_then_green_warmup) ... HTTP Request: GET http://testserver/startup "HTTP/1.1 200 OK"
+HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+{"event": "request", "request_id": "f9bc76ac-7b0c-4c24-b020-086dacc28d1e", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "rejected", "wall": 1794848275.0795672, "duration": 4.012498538941145e-05, "client_ip": "testclient", "reason": "backend_unready"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 503 Service Unavailable"
+{"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848275.2294679}
+HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+{"event": "request", "request_id": "e7ea03dd-75e7-4e6f-affd-e387e30aa0aa", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848275.274327, "duration": 0.022916999994777143, "client_ip": "testclient", "session_id": "", "chunks": 8, "ttfc_seconds": 0.004686583008151501, "queue_seconds": 8.966599125415087e-05, "cache_hit": false}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 200 OK"
+HTTP Request: GET http://testserver/startup "HTTP/1.1 503 Service Unavailable"
+HTTP Request: GET http://testserver/ready "HTTP/1.1 503 Service Unavailable"
+{"event": "request", "request_id": "617762f2-f4c0-4ccb-b907-4e05801cdf7e", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "rejected", "wall": 1794848275.2787929, "duration": 8.74590186867863e-05, "client_ip": "testclient", "reason": "backend_unready"}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 503 Service Unavailable"
+{"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848275.428611}
+HTTP Request: GET http://testserver/ready "HTTP/1.1 200 OK"
+{"event": "request", "request_id": "e68990fb-8315-4d59-84cf-31a229a55d38", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848275.477412, "duration": 0.022703915979946032, "client_ip": "testclient", "session_id": "", "chunks": 8, "ttfc_seconds": 0.005114874977152795, "queue_seconds": 0.000149125000461936, "cache_hit": false}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 200 OK"
+ok
+test_restart_recovers_same_version_and_client_history (test_local.ServiceTests.test_restart_recovers_same_version_and_client_history) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848275.482395}
+{"event": "request", "request_id": "87e94ff7-7aa4-41ae-804e-0df224bf0619", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848275.517965, "duration": 0.02261254098266363, "client_ip": "testclient", "session_id": "", "chunks": 8, "ttfc_seconds": 0.004982165992259979, "queue_seconds": 0.00020704098278656602, "cache_hit": false}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 200 OK"
+{"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848275.521517}
+{"event": "request", "request_id": "e0065b8a-c19b-4e82-b3af-f6a82fe3cc13", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848275.5573199, "duration": 0.022994750004727393, "client_ip": "testclient", "session_id": "", "chunks": 8, "ttfc_seconds": 0.006024291011271998, "queue_seconds": 0.00018695800099521875, "cache_hit": false}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 200 OK"
+ok
+test_stream_has_terminal_frame_and_identity (test_local.ServiceTests.test_stream_has_terminal_frame_and_identity) ... {"event": "warmup_finished", "pod": "local", "version": "A", "ready": true, "wall": 1794848275.56057}
+{"event": "request", "request_id": "controlled-id", "pod": "local", "version": "A", "artifact_sha256": "cfe93228cfd018cc8ece08e40b59806491694ac9d6fa7ce2d7cfd47af89012c5", "backend_mode": "simulated", "outcome": "completed", "wall": 1794848275.5814028, "duration": 0.009828833979554474, "client_ip": "testclient", "session_id": "", "chunks": 3, "ttfc_seconds": 0.005013208981836215, "queue_seconds": 9.937499999068677e-05, "cache_hit": false}
+HTTP Request: POST http://testserver/generate "HTTP/1.1 200 OK"
+HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.154s
+
+OK

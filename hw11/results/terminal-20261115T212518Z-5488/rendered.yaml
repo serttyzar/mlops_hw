@@ -1,0 +1,833 @@
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hw11-monitor
+---
+# Source: hw11/templates/api.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hw11-api
+  labels:
+    app: hw11-api
+    release: hw11
+data:
+  HW11_FAULTS_ENABLED: "false"
+  HW11_VERSION: "A"
+  HW11_WARMUP: "20"
+  HW11_BROKEN_PROBES: "false"
+  HW11_CONCURRENCY: "1"
+  HW11_QUEUE_CAPACITY: "24"
+  HW11_QUEUE_TIMEOUT: "12"
+  HW11_CACHE_SIZE: "16"
+  HW11_HIT_CPU: "0.025"
+  HW11_MISS_CPU: "0.2"
+  HW11_CHUNK_CPU: "0.008"
+  HW11_CHUNK_INTERVAL: "0.02"
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hw11-prometheus
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 2s
+      evaluation_interval: 5s
+    rule_files:
+      - /etc/prometheus/alerts.yml
+    scrape_configs:
+      - job_name: api
+        kubernetes_sd_configs:
+          - role: pod
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_namespace]
+            action: keep
+            regex: hw11
+          - source_labels: [__meta_kubernetes_pod_label_release]
+            action: keep
+            regex: hw11
+          - source_labels: [__meta_kubernetes_pod_label_app]
+            action: keep
+            regex: hw11-api
+          - source_labels: [__meta_kubernetes_pod_container_port_name]
+            action: keep
+            regex: http
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+          - source_labels: [__meta_kubernetes_namespace]
+            target_label: namespace
+      - job_name: state-metrics
+        static_configs:
+          - targets: ['hw11-state-metrics:8080']
+      - job_name: cadvisor
+        scheme: https
+        authorization:
+          credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        kubernetes_sd_configs:
+          - role: node
+        relabel_configs:
+          - target_label: __address__
+            replacement: kubernetes.default.svc:443
+          - source_labels: [__meta_kubernetes_node_name]
+            target_label: __metrics_path__
+            regex: (.+)
+            replacement: /api/v1/nodes/$1/proxy/metrics/cadvisor
+        metric_relabel_configs:
+          - source_labels: [namespace]
+            action: keep
+            regex: hw11
+    
+  alerts.yml: |
+    groups:
+      - name: hw11
+        rules:
+          - alert: HighTTFC
+            expr: (histogram_quantile(0.95, sum by (le) (rate(hw11_ttfc_seconds_bucket[1m]))) > 0.8) and (sum(increase(hw11_ttfc_seconds_count[1m])) >= 30)
+            for: 30s
+            labels:
+              severity: warning
+            annotations:
+              summary: Successful response p95 TTFC exceeds 0.8 seconds
+          - alert: HighFailureRatio
+            expr: (sum(rate(hw11_requests_total{outcome=~"rejected|aborted"}[1m])) / clamp_min(sum(rate(hw11_requests_total[1m])), 0.001) > 0.05) and (sum(increase(hw11_requests_total[1m])) >= 30)
+            for: 30s
+            labels:
+              severity: warning
+            annotations:
+              summary: Rejected or aborted fraction exceeds 5 percent
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hw11-grafana
+data:
+  datasource.yml: |
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        uid: prometheus
+        type: prometheus
+        access: proxy
+        url: http://hw11-prometheus:9090
+        isDefault: true
+  provider.yml: |
+    apiVersion: 1
+    providers:
+      - name: hw11
+        folder: MLOps
+        type: file
+        options:
+          path: /var/lib/grafana/dashboards
+  dashboard.json: |
+    {
+      "uid": "hw11",
+      "title": "HW11 \u00b7 CPU simulation",
+      "schemaVersion": 39,
+      "version": 1,
+      "refresh": "5s",
+      "time": {
+        "from": "now-15m",
+        "to": "now"
+      },
+      "panels": [
+        {
+          "id": 1,
+          "title": "p95 TTFC \u00b7 successful streams",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 0,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "histogram_quantile(0.95, sum by (le,pod) (rate(hw11_ttfc_seconds_bucket[1m])))",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "s"
+            }
+          }
+        },
+        {
+          "id": 2,
+          "title": "p95 full response",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 0,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "histogram_quantile(0.95, sum by (le,pod) (rate(hw11_response_seconds_bucket[1m])))",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "s"
+            }
+          }
+        },
+        {
+          "id": 3,
+          "title": "Running / waiting by Pod",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 8,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "hw11_running",
+              "legendFormat": "{{pod}} {{outcome}}"
+            },
+            {
+              "refId": "B",
+              "expr": "hw11_waiting",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            }
+          }
+        },
+        {
+          "id": 4,
+          "title": "Completed responses / second",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 8,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "sum by(pod)(rate(hw11_requests_total{outcome=\"completed\"}[1m]))",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "reqps"
+            }
+          }
+        },
+        {
+          "id": 5,
+          "title": "Rejected / aborted / invalid",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 16,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "sum by(pod,outcome)(rate(hw11_requests_total{outcome!=\"completed\"}[1m]))",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "reqps"
+            }
+          }
+        },
+        {
+          "id": 6,
+          "title": "CPU by Pod",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 16,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "sum by(pod)(rate(container_cpu_usage_seconds_total{namespace=\"hw11\",container=\"api\"}[1m]))",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "cores"
+            }
+          }
+        },
+        {
+          "id": 7,
+          "title": "RAM by Pod",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 0,
+            "y": 24,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "sum by(pod)(container_memory_working_set_bytes{namespace=\"hw11\",container=\"api\"})",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "bytes"
+            }
+          }
+        },
+        {
+          "id": 8,
+          "title": "Ready API replicas",
+          "type": "timeseries",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "gridPos": {
+            "x": 12,
+            "y": 24,
+            "w": 12,
+            "h": 8
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "sum(kube_pod_status_ready{namespace=\"hw11\",pod=~\"hw11-api-.*\",condition=\"true\"})",
+              "legendFormat": "{{pod}} {{outcome}}"
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            }
+          }
+        }
+      ]
+    }
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hw11-hw11-monitor
+rules:
+  - apiGroups: [""]
+    resources: [pods, services, endpoints, nodes, nodes/proxy]
+    verbs: [get, list, watch]
+  - apiGroups: [apps]
+    resources: [deployments, replicasets, statefulsets, daemonsets]
+    verbs: [get, list, watch]
+  - apiGroups: [autoscaling]
+    resources: [horizontalpodautoscalers]
+    verbs: [get, list, watch]
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hw11-hw11-monitor
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: hw11-hw11-monitor
+subjects:
+  - kind: ServiceAccount
+    name: hw11-monitor
+    namespace: hw11
+---
+# Source: hw11/templates/api.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hw11-affinity
+spec:
+  selector:
+    app: hw11-api
+    release: hw11
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 600
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+---
+# Source: hw11/templates/api.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hw11-plain
+spec:
+  selector:
+    app: hw11-api
+    release: hw11
+  sessionAffinity: None
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hw11-prometheus
+spec:
+  selector:
+    app: hw11-prometheus
+  ports:
+    - {port: 9090, targetPort: 9090}
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hw11-grafana
+spec:
+  selector:
+    app: hw11-grafana
+  ports:
+    - {port: 3000, targetPort: 3000}
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hw11-state-metrics
+spec:
+  selector:
+    app: hw11-state-metrics
+  ports:
+    - {port: 8080, targetPort: 8080}
+---
+# Source: hw11/templates/clients.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hw11-client-0
+  labels:
+    app: hw11-client
+    release: hw11
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: client
+      image: "hw11-api:0.1.0"
+      imagePullPolicy: IfNotPresent
+      command: [python, -c, "import time; time.sleep(86400)"]
+      env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      resources:
+        requests:
+          cpu: 50m
+          memory: 48Mi
+        limits:
+          cpu: 500m
+          memory: 192Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop: [ALL]
+      volumeMounts:
+        - name: results
+          mountPath: /tmp
+  volumes:
+    - name: results
+      emptyDir:
+        sizeLimit: 128Mi
+---
+# Source: hw11/templates/clients.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hw11-client-1
+  labels:
+    app: hw11-client
+    release: hw11
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: client
+      image: "hw11-api:0.1.0"
+      imagePullPolicy: IfNotPresent
+      command: [python, -c, "import time; time.sleep(86400)"]
+      env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      resources:
+        requests:
+          cpu: 50m
+          memory: 48Mi
+        limits:
+          cpu: 500m
+          memory: 192Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop: [ALL]
+      volumeMounts:
+        - name: results
+          mountPath: /tmp
+  volumes:
+    - name: results
+      emptyDir:
+        sizeLimit: 128Mi
+---
+# Source: hw11/templates/clients.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hw11-client-2
+  labels:
+    app: hw11-client
+    release: hw11
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: client
+      image: "hw11-api:0.1.0"
+      imagePullPolicy: IfNotPresent
+      command: [python, -c, "import time; time.sleep(86400)"]
+      env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      resources:
+        requests:
+          cpu: 50m
+          memory: 48Mi
+        limits:
+          cpu: 500m
+          memory: 192Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop: [ALL]
+      volumeMounts:
+        - name: results
+          mountPath: /tmp
+  volumes:
+    - name: results
+      emptyDir:
+        sizeLimit: 128Mi
+---
+# Source: hw11/templates/clients.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hw11-client-3
+  labels:
+    app: hw11-client
+    release: hw11
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: client
+      image: "hw11-api:0.1.0"
+      imagePullPolicy: IfNotPresent
+      command: [python, -c, "import time; time.sleep(86400)"]
+      env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      resources:
+        requests:
+          cpu: 50m
+          memory: 48Mi
+        limits:
+          cpu: 500m
+          memory: 192Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop: [ALL]
+      volumeMounts:
+        - name: results
+          mountPath: /tmp
+  volumes:
+    - name: results
+      emptyDir:
+        sizeLimit: 128Mi
+---
+# Source: hw11/templates/api.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw11-api
+spec:
+  replicas: 2
+  minReadySeconds: 5
+  progressDeadlineSeconds: 240
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: hw11-api
+      release: hw11
+  template:
+    metadata:
+      labels:
+        app: hw11-api
+        release: hw11
+      annotations:
+        config-sha256: "a420c15676d4e49f13ac023304bae961c8b784b0e978cce53b415d3d8b90904a"
+    spec:
+      terminationGracePeriodSeconds: 70
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: api
+          image: "hw11-api:0.1.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: hw11-api
+          env:
+            - name: HW11_POD
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            limits:
+              cpu: "1"
+              memory: 256Mi
+            requests:
+              cpu: 250m
+              memory: 96Mi
+          startupProbe:
+            httpGet:
+              path: /startup
+              port: http
+            periodSeconds: 2
+            timeoutSeconds: 1
+            failureThreshold: 90
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+            periodSeconds: 1
+            timeoutSeconds: 1
+            failureThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - python
+                  - -c
+                  - "import time,urllib.request; time.sleep(5); urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/drain',data=b'',method='POST'),timeout=2).read()"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw11-prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hw11-prometheus
+  template:
+    metadata:
+      labels:
+        app: hw11-prometheus
+    spec:
+      serviceAccountName: hw11-monitor
+      securityContext:
+        fsGroup: 65534
+      containers:
+        - name: prometheus
+          image: prom/prometheus:v3.2.1
+          args: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus", "--storage.tsdb.retention.time=2h", "--storage.tsdb.retention.size=256MB"]
+          ports:
+            - containerPort: 9090
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: 500m, memory: 384Mi}
+          volumeMounts:
+            - {name: config, mountPath: /etc/prometheus}
+            - {name: data, mountPath: /prometheus}
+      volumes:
+        - name: config
+          configMap:
+            name: hw11-prometheus
+        - name: data
+          emptyDir: {sizeLimit: 512Mi}
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw11-grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hw11-grafana
+  template:
+    metadata:
+      labels:
+        app: hw11-grafana
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 472
+      containers:
+        - name: grafana
+          image: grafana/grafana:11.6.0
+          env:
+            - {name: GF_AUTH_ANONYMOUS_ENABLED, value: "true"}
+            - {name: GF_AUTH_ANONYMOUS_ORG_ROLE, value: Viewer}
+            - {name: GF_USERS_ALLOW_SIGN_UP, value: "false"}
+          ports:
+            - containerPort: 3000
+          resources:
+            requests: {cpu: 50m, memory: 96Mi}
+            limits: {cpu: 300m, memory: 256Mi}
+          volumeMounts:
+            - {name: config, mountPath: /etc/grafana/provisioning/datasources/datasource.yml, subPath: datasource.yml}
+            - {name: config, mountPath: /etc/grafana/provisioning/dashboards/provider.yml, subPath: provider.yml}
+            - {name: config, mountPath: /var/lib/grafana/dashboards/dashboard.json, subPath: dashboard.json}
+            - {name: data, mountPath: /var/lib/grafana}
+      volumes:
+        - name: config
+          configMap:
+            name: hw11-grafana
+        - name: data
+          emptyDir: {sizeLimit: 128Mi}
+---
+# Source: hw11/templates/monitoring.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw11-state-metrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hw11-state-metrics
+  template:
+    metadata:
+      labels:
+        app: hw11-state-metrics
+    spec:
+      serviceAccountName: hw11-monitor
+      containers:
+        - name: state-metrics
+          image: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.15.0
+          args: ["--resources=pods,deployments,replicasets,horizontalpodautoscalers", "--namespaces=hw11"]
+          ports:
+            - containerPort: 8080
+          resources:
+            requests: {cpu: 30m, memory: 48Mi}
+            limits: {cpu: 200m, memory: 128Mi}

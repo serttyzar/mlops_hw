@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.tools/
+.state/
+
+# Historical failed launches stay local; publish the completed run only.
+/results/terminal-*/
+!/results/terminal-20261115T212518Z-5488/
+/results/terminal-20261115T212518Z-5488/events.jsonl
+/results/LAST_RUN.txt

@@ -1,0 +1,13 @@
+**/.venv
+**/.git
+**/__pycache__
+**/.models
+**/.real
+**/.tools
+**/data
+**/models
+**/results
+**/metrics
+**/mlruns
+**/submission
+**/*.mp4

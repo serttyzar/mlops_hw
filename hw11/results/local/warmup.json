@@ -1,0 +1,16 @@
+[
+  {
+    "broken_probes": true,
+    "startup_status": 200,
+    "ready_status": 200,
+    "direct_request_status": 503,
+    "scope": "in-process ASGI; does not prove Service routing"
+  },
+  {
+    "broken_probes": false,
+    "startup_status": 503,
+    "ready_status": 503,
+    "direct_request_status": 503,
+    "scope": "in-process ASGI; does not prove Service routing"
+  }
+]

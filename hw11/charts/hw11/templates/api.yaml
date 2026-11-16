@@ -1,0 +1,161 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-api
+  labels:
+    app: hw11-api
+    release: {{ .Release.Name }}
+data:
+  HW11_FAULTS_ENABLED: {{ .Values.faultsEnabled | quote }}
+  HW11_VERSION: {{ .Values.modelVersion | quote }}
+  HW11_WARMUP: {{ .Values.warmupSeconds | quote }}
+  HW11_BROKEN_PROBES: {{ .Values.brokenProbes | quote }}
+  HW11_CONCURRENCY: {{ .Values.concurrency | quote }}
+  HW11_QUEUE_CAPACITY: {{ .Values.queueCapacity | quote }}
+  HW11_QUEUE_TIMEOUT: {{ .Values.queueTimeout | quote }}
+  HW11_CACHE_SIZE: {{ .Values.cacheSize | quote }}
+  HW11_HIT_CPU: {{ .Values.hitCpu | quote }}
+  HW11_MISS_CPU: {{ .Values.missCpu | quote }}
+  HW11_CHUNK_CPU: {{ .Values.chunkCpu | quote }}
+  HW11_CHUNK_INTERVAL: {{ .Values.chunkInterval | quote }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-api
+spec:
+  {{- if not .Values.hpa.enabled }}
+  replicas: {{ .Values.replicas }}
+  {{- end }}
+  minReadySeconds: 5
+  progressDeadlineSeconds: 240
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: hw11-api
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: hw11-api
+        release: {{ .Release.Name }}
+      annotations:
+        config-sha256: {{ toJson .Values | sha256sum | quote }}
+    spec:
+      terminationGracePeriodSeconds: 70
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-api
+          env:
+            - name: HW11_POD
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          startupProbe:
+            httpGet:
+              path: /startup
+              port: http
+            periodSeconds: 2
+            timeoutSeconds: 1
+            failureThreshold: 90
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+            periodSeconds: 1
+            timeoutSeconds: 1
+            failureThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - python
+                  - -c
+                  - "import time,urllib.request; time.sleep(5); urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/drain',data=b'',method='POST'),timeout=2).read()"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+---
+{{- range $name, $affinity := dict "plain" "None" "affinity" "ClientIP" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $.Release.Name }}-{{ $name }}
+spec:
+  selector:
+    app: hw11-api
+    release: {{ $.Release.Name }}
+  sessionAffinity: {{ $affinity }}
+  {{- if eq $affinity "ClientIP" }}
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 600
+  {{- end }}
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+---
+{{- end }}
+{{- if .Values.hpa.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Release.Name }}-api
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Release.Name }}-api
+  minReplicas: 2
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: {{ .Values.hpa.cpuPercent }}
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 15
+    scaleDown:
+      stabilizationWindowSeconds: {{ .Values.hpa.stabilizationSeconds }}
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 15
+{{- end }}

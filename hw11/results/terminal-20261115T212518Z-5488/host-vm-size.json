@@ -1,0 +1,6 @@
+{
+  "vm_root_allocated_kib": 1144484,
+  "vm_data_allocated_kib": 4661888,
+  "vm_total_allocated_gib": 5.537387847900391,
+  "measurement": "du -sk on the dedicated Colima profile root and data directories; allocated host blocks"
+}

@@ -53,3 +53,9 @@ python3 -m unittest discover -s tests -p 'test_*.py' -v
 
 ДЗ 8–10: [отчёт](hw8910/docs/conclusion.md), [запуск](hw8910/README.md).
 Кандидат остаётся отклонённым; API обслуживает закреплённую baseline.
+
+## ДЗ 11
+
+[`hw11/`](hw11/README.md) — Kubernetes, нагрузка, Helm, мониторинг и HPA;
+продолжение API из `hw8910/`. Текущий статус измерительной части указан в
+README и `hw11/report.html`.

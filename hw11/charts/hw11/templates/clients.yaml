@@ -1,0 +1,48 @@
+{{- if .Values.clients }}
+{{- range until 4 }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ $.Release.Name }}-client-{{ . }}
+  labels:
+    app: hw11-client
+    release: {{ $.Release.Name }}
+spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: client
+      image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+      imagePullPolicy: {{ $.Values.image.pullPolicy }}
+      command: [python, -c, "import time; time.sleep(86400)"]
+      env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      resources:
+        requests:
+          cpu: 50m
+          memory: 48Mi
+        limits:
+          cpu: 500m
+          memory: 192Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop: [ALL]
+      volumeMounts:
+        - name: results
+          mountPath: /tmp
+  volumes:
+    - name: results
+      emptyDir:
+        sizeLimit: 128Mi
+---
+{{- end }}
+{{- end }}

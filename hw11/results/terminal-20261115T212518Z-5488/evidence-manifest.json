@@ -1,0 +1,13 @@
+{
+  "events": {
+    "file": "events.jsonl.gz",
+    "encoding": "gzip",
+    "raw_sha256": "41387b75459ff0e51e805b2e7e8a85602069537f403be37c8b696a467a78fbd1",
+    "gzip_sha256": "cf822aaa97b62e28d533fa792b63b0c93f16ee2dba79d1f28e4eb28b9fbdda9d",
+    "raw_bytes": 133965978,
+    "gzip_bytes": 12547889
+  },
+  "request_file": "requests.jsonl",
+  "request_count": 15812,
+  "request_sha256": "e875f420c4b14923e076d155ec16fdc998918efdc4f38226f231b5f47cb5d775"
+}

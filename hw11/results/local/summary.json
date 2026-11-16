@@ -1,0 +1,23 @@
+{
+  "available": false,
+  "scope": "no Kubernetes measurements",
+  "overall": {
+    "planned": 0,
+    "sent": 0,
+    "completed": 0,
+    "outcomes": {},
+    "error_fraction": null,
+    "timeout_fraction": null,
+    "ttfc_seconds_p50": null,
+    "ttfc_seconds_p95": null,
+    "total_seconds_p50": null,
+    "total_seconds_p95": null,
+    "queue_seconds_p50": null,
+    "queue_seconds_p95": null,
+    "send_lag_seconds_p95": null,
+    "inter_chunk_seconds_p95": null
+  },
+  "runs": {},
+  "per_pod": [],
+  "histogram_comparison": {}
+}

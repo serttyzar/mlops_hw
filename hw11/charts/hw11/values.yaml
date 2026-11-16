@@ -1,0 +1,34 @@
+image:
+  repository: hw11-api
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+replicas: 2
+modelVersion: A
+warmupSeconds: 20
+brokenProbes: false
+faultsEnabled: false
+concurrency: 1
+queueCapacity: 24
+queueTimeout: 12
+cacheSize: 16
+hitCpu: 0.025
+missCpu: 0.2
+chunkCpu: 0.008
+chunkInterval: 0.02
+resources:
+  requests:
+    cpu: 250m
+    memory: 96Mi
+  limits:
+    cpu: "1"
+    memory: 256Mi
+hpa:
+  enabled: false
+  cpuPercent: 60
+  stabilizationSeconds: 60
+monitoring:
+  enabled: true
+  prometheusImage: prom/prometheus:v3.2.1
+  grafanaImage: grafana/grafana:11.6.0
+  stateMetricsImage: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.15.0
+clients: true

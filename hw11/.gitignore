@@ -11,3 +11,18 @@ __pycache__/
 
 /results/publish.log
 /results/publish-status.json
+
+/presentation/.build/
+
+# Local setup diagnostics and launcher output.
+/results/local/cluster-attempt.log
+/results/local/cluster-attempt/environment-before.json
+/results/local/cluster-attempt/events.jsonl
+/results/local/environment.json
+/results/local/localhost.json
+/results/local/launcher-validation.json
+/results/local/source-size.json
+/results/local/summary.json
+/results/local/verification.json
+/results/local/verification.log
+/results/terminal-20261115T212518Z-5488/launcher.log

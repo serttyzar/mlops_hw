@@ -1,5 +1,5 @@
 #!/bin/bash
-# User-invoked Terminal workflow. Does not edit Codex settings or MDM policy.
+# Build the local stand, run the experiments and save their results.
 set -Eeuo pipefail
 cd "$(dirname "$0")/.."
 project_dir="$PWD"
@@ -29,7 +29,7 @@ finish() {
         printf '\nВсе проверки полного прогона прошли.\n'
     fi
     printf '\nРезультаты: %s\n' "$output_dir"
-    printf 'Вернитесь в чат и напишите «запуск завершён» — агент прочитает журналы из проекта.\n'
+    printf 'Итоговый отчёт: %s/report.html\n' "$output_dir"
     if [ -t 0 ]; then
         read -r -p 'Нажмите Enter, чтобы закрыть это окно. ' unused || true
     fi
@@ -38,7 +38,6 @@ finish() {
 trap finish EXIT
 printf 'ДЗ 11 — локальный запуск в Terminal\n'
 printf 'Начало (UTC): %s\nРезультаты: %s\n' "$(date -u +%FT%TZ)" "$output_dir"
-printf 'MDM и настройки Codex не изменяются. sudo не используется.\n'
 printf 'Будет использован отдельный профиль Colima mlops-hw11: 4 CPU, 6 GiB RAM.\n'
 printf 'Полный цикл может занять 40–60 минут плюс загрузка образов.\n\n'
 stage=python
@@ -60,7 +59,7 @@ if [ -z "$python_bin" ]; then
     elif command -v uv >/dev/null 2>&1; then
         uv venv --python 3.12 .venv
     else
-        printf 'Не найден Python 3.12 или uv. Сохраните этот журнал для агента.\n' >&2
+        printf 'Не найден Python 3.12 или uv. Установите одну из этих зависимостей.\n' >&2
         exit 2
     fi
     python_bin="$project_dir/.venv/bin/python"

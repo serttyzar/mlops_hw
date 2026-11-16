@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw11/scripts/cluster.py", line 504, in <module>
-    main()
-  File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw11/scripts/cluster.py", line 486, in main
-    setup(lab)
-  File "/Users/serttyzar/Projects/MLOps/mlops26-hw8-9-10/mlops_hw/hw11/scripts/cluster.py", line 266, in setup
-    raise RuntimeError('Preflight failed. See environment-before.json. No cluster results were produced.')
-RuntimeError: Preflight failed. See environment-before.json. No cluster results were produced.

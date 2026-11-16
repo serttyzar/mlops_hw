@@ -56,4 +56,4 @@ remote_sha=${remote_line%%[[:space:]]*}
 test "$local_sha" = "$remote_sha"
 printf '{"state":"published","head":"%s","artifact_commit":"a490e568be55cd3bc76265b85e22ede3ac2ce25b","remote_verified":true}\n' "$remote_sha" > "$status_file"
 printf '\nПубликация подтверждена. Коммит сдачи:\nhttps://github.com/serttyzar/mlops_hw/commit/a490e568be55cd3bc76265b85e22ede3ac2ce25b\n'
-printf 'Вернитесь в чат и напишите «опубликовано».\n'
+printf 'Журнал публикации: %s\n' "$log_file"

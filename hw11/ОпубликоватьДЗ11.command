@@ -7,10 +7,14 @@ cd "$repo_dir"
 mkdir -p hw11/results
 log_file="$repo_dir/hw11/results/publish.log"
 status_file="$repo_dir/hw11/results/publish-status.json"
-exec > >(tee -a "$log_file") 2>&1
+if [ "${1:-}" != '--check-only' ]; then
+    exec > >(tee -a "$log_file") 2>&1
+fi
+path_list=''
 finish() {
     code=$?
     trap - EXIT
+    if [ -n "$path_list" ]; then rm -f "$path_list"; fi
     if [ "$code" -ne 0 ]; then
         printf '{"state":"failed","exit_code":%s}\n' "$code" > "$status_file"
         printf '\nПубликация не подтверждена. Журнал: %s\n' "$log_file"
@@ -24,12 +28,25 @@ printf '\nПубликация ДЗ 11, %s\n' "$(date -u +%FT%TZ)"
 test "$(git remote get-url origin)" = 'https://github.com/serttyzar/mlops_hw.git'
 test "$(git branch --show-current)" = main
 git merge-base --is-ancestor a490e568be55cd3bc76265b85e22ede3ac2ce25b HEAD
-while IFS= read -r changed_path; do
+# NUL separators preserve UTF-8, spaces and embedded newlines verbatim.
+# A file makes a failed git diff fatal instead of hiding it in a subshell.
+path_list=$(mktemp)
+git diff --name-only -z a490e568be55cd3bc76265b85e22ede3ac2ce25b^ HEAD > "$path_list"
+reviewed=0
+while IFS= read -r -d '' changed_path; do
+    reviewed=$((reviewed + 1))
     case "$changed_path" in hw11/*|README.md|.dockerignore) ;; *)
         printf 'Есть дополнительные изменения истории вне ДЗ 11: %s\n' "$changed_path" >&2
         exit 2;;
     esac
-done < <(git diff --name-only a490e568be55cd3bc76265b85e22ede3ac2ce25b^ HEAD)
+done < "$path_list"
+rm -f "$path_list"
+path_list=''
+printf 'Проверены пути файлов: %s. Посторонних изменений истории нет.\n' "$reviewed"
+if [ "${1:-}" = '--check-only' ]; then
+    printf 'Проверка завершена без обращения к GitHub и без публикации.\n'
+    exit 0
+fi
 # Normal fast-forward push; never force. Use the existing credential helper.
 export GIT_TERMINAL_PROMPT=0
 git push origin main

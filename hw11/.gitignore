@@ -8,3 +8,6 @@ __pycache__/
 !/results/terminal-20261115T212518Z-5488/
 /results/terminal-20261115T212518Z-5488/events.jsonl
 /results/LAST_RUN.txt
+
+/results/publish.log
+/results/publish-status.json
